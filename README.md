@@ -1,12 +1,12 @@
 # Task_Manager_Project_3
 Task Manager for GA Homework Assignments
 
-##USER STORIES
-1) User opens the app - they either register for a new account or login
+## User Stories
+1) User opens the app - they either register for a new account or login. Users are stored in a model. User Model consists of UserID, Password, Homework_id.
 
 ![alt text](https://i.imgur.com/iNGSYYD.png)
 
-2) User is taken to the home page - by default they will see the "Homework" tab with a list of current assignments
+2) User is taken to the home page - by default they will see the "Homework" tab with a list of current assignments. Assignments are stored in a model. Assignment Model consists of AssignmentID, Name, Github_Link, Notes, Completed.
 
 ![alt text](https://i.imgur.com/Dn9IVRA.png)
 
