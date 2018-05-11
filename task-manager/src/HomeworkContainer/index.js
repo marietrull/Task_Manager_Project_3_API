@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Homework from '../Homework';
 
 class HomeworkContainer extends Component {
 	constructor (){
@@ -9,10 +10,19 @@ class HomeworkContainer extends Component {
 		}
 	}
 
+	removeAssignment = (e) => {
+		//Capture the id of the assignment for deletion
+		const id = e.currentTarget.id
+		//Filter through assignments and omit the item associated with the id
+		this.setState({assignments: this.state.assignments.filter((assignment, i) => i != id)})
+		
+	}
+
 	render () {
 		return (
 			<div>
 				HOMEWORK CONTAINER
+				<Homework assignments={this.state.assignments} removeAssignment={this.removeAssignment}/>
 			</div>
 			)
 
