@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Homework from '../Homework';
+import CreateHomework from '../CreateHomework';
 
 class HomeworkContainer extends Component {
 	constructor (){
@@ -8,6 +9,11 @@ class HomeworkContainer extends Component {
 		this.state = {
 			assignments: ['Homework 1', 'Homework 2', 'Homework 3', 'Homework 4']
 		}
+	}
+
+	addAssignment = (assignment, e) => {
+		//add assignment directly to the state
+		this.setState({assignments: [...this.state.assignments, assignment]})	
 	}
 
 	removeAssignment = (e) => {
@@ -23,6 +29,7 @@ class HomeworkContainer extends Component {
 			<div>
 				HOMEWORK CONTAINER
 				<Homework assignments={this.state.assignments} removeAssignment={this.removeAssignment}/>
+				<CreateHomework addAssignment={this.addAssignment}/>
 			</div>
 			)
 
