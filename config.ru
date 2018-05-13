@@ -31,8 +31,8 @@ map('/user'){
 	run UserController
 }
 
-# map('/assignment'){
-# 	run AssignmentController
-# }
+map('/assignment'){
+	run AssignmentController
+}
 
 

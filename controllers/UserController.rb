@@ -21,6 +21,8 @@ class UserController < ApplicationController
 
 		session[:username] = user.username
 
+		session[:user_id] = user.id
+
 
 		{
 			success: true,
@@ -53,6 +55,8 @@ class UserController < ApplicationController
 			session[:logged_in] = true
 
 			session[:username] = username
+
+			session[:user_id] = user.id
 
 			{
 				success: true,

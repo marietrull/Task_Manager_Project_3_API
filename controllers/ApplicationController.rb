@@ -4,7 +4,7 @@ class ApplicationController < Sinatra::Base
 	Bundler.require()
 
 
-
+	# Connection to DB
 	ActiveRecord::Base.establish_connection(
 
 		:adapter => 'postgresql',
@@ -14,11 +14,16 @@ class ApplicationController < Sinatra::Base
 
 	# Middleware
 
+
 		# Cookie
 
 	use Rack::Session::Cookie, 	:key => 'rack.session',
 								:path => '/',
 								:secret => 'CuriousTurtles'
+							
+
+
+
 
 
 	# Parse JSON from body of requests
@@ -32,6 +37,7 @@ class ApplicationController < Sinatra::Base
 		end	
 
 	end	
+
 
 
 
