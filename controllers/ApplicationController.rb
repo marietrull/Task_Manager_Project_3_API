@@ -21,7 +21,7 @@ class ApplicationController < Sinatra::Base
 								:secret => 'CuriousTurtles'
 
 
-
+	# Parse JSON from body of requests
 
 	before do
 

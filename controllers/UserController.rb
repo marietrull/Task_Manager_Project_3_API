@@ -4,6 +4,7 @@ class UserController < ApplicationController
 
 	# Routes
 
+
 	# Register Route
 
 	post '/register' do 
@@ -72,7 +73,24 @@ class UserController < ApplicationController
 
 		end	
 
-		
+	end
+
+
+
+
+	# Logout
+
+	post '/logout' do
+
+		session.destroy
+
+		{
+			success: true,
+
+			message:"Logged out."
+		}.to_json
+
+
 	end
 
 
