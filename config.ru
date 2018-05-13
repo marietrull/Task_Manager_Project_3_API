@@ -5,7 +5,7 @@ require 'sinatra/activerecord'
 
 # Models
 
-require './models/HomeworkModel'
+require './models/AssignmentModel'
 
 require './models/UserModel'
 
@@ -13,9 +13,12 @@ require './models/UserModel'
 
 require './controllers/ApplicationController'
 
-require './controllers/HomeworkController'
+require './controllers/AssignmentController'
 
 require './controllers/UserController'
+
+
+
 
 
 # Routes
@@ -24,5 +27,12 @@ map('/'){
 	run ApplicationController
 }
 
+map('/user'){
+	run UserController
+}
+
+# map('/assignment'){
+# 	run AssignmentController
+# }
 
 

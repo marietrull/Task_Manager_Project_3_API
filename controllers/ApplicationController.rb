@@ -5,15 +5,54 @@ class ApplicationController < Sinatra::Base
 
 
 
+	ActiveRecord::Base.establish_connection(
+
+		:adapter => 'postgresql',
+		:database => 'task_manager'
+
+	)
+
+	# Middleware
+
+		# Cookie
+
+	use Rack::Session::Cookie, 	:key => 'rack.session',
+								:path => '/',
+								:secret => 'CuriousTurtles'
+
+
+
+
+	before do
+
+		payload_body = request.body.read
+
+		if(payload_body != "")
+			@payload = JSON.parse(payload_body).symbolize_keys
+		end	
+
+	end	
+
+
+
 	# Routes
 
-	get '/' do 
+	get '/' do
 
 		{
-			success: true,
+			success: false,
+			message: 'Please consult the API documentation.'
 		}.to_json
-		
 	end
+
+
+	get '*' do
+		halt 400, {
+			success: false,
+			message: 404
+		}.to_json
+
+	end	
 
 
 
