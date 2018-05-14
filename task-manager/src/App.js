@@ -87,7 +87,7 @@ class App extends Component {
 
     	  		<div className="Logo"><span className="LogoTitle">TM</span></div>
 
-    	  		<span className="Heading">WELCOME TO GA TASK MANAGER</span>
+    	  		<span className="Heading">GENERAL ASSEMBLY TASK MANAGER</span>
 
     	  	</div>
 

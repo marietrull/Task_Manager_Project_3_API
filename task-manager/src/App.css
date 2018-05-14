@@ -1,3 +1,9 @@
+
+body {
+  font-family:'Jua', sans-serif;
+  background-color: #F2F3F4;
+}
+
 .App {
   text-align: center;
 }
@@ -6,7 +12,7 @@
 
   height: 230px;
   background-color:#7B7D7D;
-
+  box-shadow: -5px 5px 10px #333;
   position: relative;
 }
 
@@ -17,7 +23,7 @@
   background-color: #fa4542;
   font-size:90px;
   color: rgb(255,255,255);
-  border: 3px solid black;
+  border: 3px solid #333;
   position: relative;
   position: absolute;
   left: 4%;
@@ -31,14 +37,14 @@
 
   top:20%;
 
-  right:15%;
+  right:17%;
 }
 
 .Heading {
-  font-size: 450%;
+  font-size: 400%;
   color: #fff;
   position: absolute;
-  left: 20%;
+  left: 18%;
   top: 30%;
 
 

@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import './style.css';
+
 
 const LoginRegister = ({loginAndRegister, registering,changeRegistering}) => {
 
@@ -6,15 +8,19 @@ const LoginRegister = ({loginAndRegister, registering,changeRegistering}) => {
 
 	return(
 	
-		<div>
+		<div className="LogRegField" >
 
-			<p> <span onClick={changeRegistering}>Login</span>*<span onClick={changeRegistering}>Register</span> </p>
+			<div className="LoginTab Tab" onClick={changeRegistering}>Login</div> 
 
-			<input type="text" placeholder={registering ? "Create Username" : "Username"} />
+			<div className="RegisterTab Tab" onClick={changeRegistering}>Register</div> 
 
-			<input type="password" placeholder={registering ? "Create Password" : "Password"}/>
+			<div className="LogRegContain" >
+				<input className="InpUser" type="text" placeholder={registering ? "Create Username" : "Username"} />
 
-			<button onClick={loginAndRegister}> {registering ? "Register" : "Login"} </button>
+				<input className="InpPass" type="password" placeholder={registering ? "Create Password" : "Password"}/>
+
+				<button className="LogBtn" onClick={loginAndRegister}> {registering ? "Register" : "Login"} </button>
+			</div>
 
 		</div>
 	)

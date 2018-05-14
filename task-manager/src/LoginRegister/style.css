@@ -1,0 +1,89 @@
+.LogRegField {
+	border: 3px dotted #F2F3F4;
+	height:600px;
+	position: relative;
+	margin-top:15px;
+}
+
+.Tab {
+	background-color:#D0D3D4;
+	cursor:pointer;
+	width:5%; 
+	border: 3px solid #333;
+	color: #333; 	
+}
+
+
+
+.RegisterTab {
+	height: 5%;
+	width:8%;
+	font-size: 25px;
+	position: absolute;
+	top:35.6%;
+	right: 27.3%;
+}
+
+.LoginTab {
+	height: 5%;
+	width:8%;
+	font-size: 25px;
+	position: absolute;
+	top:35.6%;
+	right: 35.3%;
+}
+
+
+
+.Tab:hover {
+	background-color: #5DADE2;
+}
+
+
+.LogRegContain {
+	position: relative;
+	border:3px solid #333;
+	margin-top: 15%;
+	height: 300px;
+	width: 45%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color:#7B7D7D;
+}
+
+.InpPass {
+	border-radius:10px;
+	border:3px solid #333;
+	font-size: 30px;
+	padding-left: 10px;
+	height: 15%;
+	width: 60%;
+	position: absolute;
+	right:25%;
+	bottom: 30%;
+}
+
+.InpUser {
+	border-radius: 10px;
+	border:3px solid #333;
+	font-size: 30px;
+	padding-left: 10px;
+	height: 15%;
+	width: 60%;
+	position: absolute;
+	bottom: 55%;
+	right:25%;
+}
+
+.LogBtn {
+	color: #333;
+	border:3px solid #333;
+	position: absolute;
+	border-radius: 10px;
+	font-size: 30px;
+	height:15%;
+	right: 5%;
+	top: 40%;
+
+}
+
