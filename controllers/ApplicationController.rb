@@ -20,6 +20,11 @@ class ApplicationController < Sinatra::Base
 	use Rack::Session::Cookie, 	:key => 'rack.session',
 								:path => '/',
 								:secret => 'CuriousTurtles'
+
+
+		# Method Override to allow PUT, PATCH, DELETE
+	use Rack::MethodOverride
+	set :method_override, true							
 							
 
 
