@@ -34,7 +34,7 @@ class CreateHomework extends Component {
 				<br/>
 
 				<label htmlFor='item'/>
-				<input id="name" type='text' placeholder='Menu Item Name' onChange={this.updateName}/>
+				<input id="name" type='text' placeholder='Assignment Name' onChange={this.updateName}/>
 				<input type='submit'/>
 
 			</form>
