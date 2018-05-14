@@ -82,7 +82,14 @@ class App extends Component {
   	render() {
     	return (
     	  <div className="App">
-    	    TASK MANAGER PROJECT 3
+
+    	  	<div className="Header">
+
+    	  		<div className="Logo"><span className="LogoTitle">TM</span></div>
+
+    	  		<span className="Heading">WELCOME TO GA TASK MANAGER</span>
+
+    	  	</div>
 
     	    {this.state.message !== "" ? <p>{this.state.message}</p> : null }
 
