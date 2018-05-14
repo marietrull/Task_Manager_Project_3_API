@@ -59,4 +59,70 @@ class AssignmentController < ApplicationController
 
 
 
+	# Delete assignment route
+
+	delete '/:id' do
+
+		assignment = Assignment.find params[:id]
+
+		assignment.destroy
+
+		{
+			success: true,
+
+			message: "Delete #{assignment.name} successful."
+		}.to_json
+
+	end	
+
+
+
+	# Edit route for assignment
+
+	put '/:id' do
+
+		assignment = Assignment.find params[:id]
+
+		assignment.name = @payload[:name]
+
+		assignment.link = @payload[:link]
+
+		assignment.notes = @payload[:notes]
+
+		assignment.save
+
+		{
+			success: true,
+
+			updated_assignment: assignment,
+
+			message: "Updated assignment."
+		}.to_json
+	end	
+
+
+
+	# Edit route for "Complete" status of assignment
+
+	patch '/:id' do 
+
+		assignment = Assignment.find params[:id]
+
+		assignment.complete ? assignment.complete = false : assignment.complete = true
+
+		assignment.save
+
+		{
+			success: true,
+			assignment_complete: assignment.complete,
+			message:"Assignment status updated."
+		}
+	end	
+
+
+
+
+
+
+
 end	
