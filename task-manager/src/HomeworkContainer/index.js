@@ -30,7 +30,6 @@ class HomeworkContainer extends Component {
 	      credentials: 'include'
 	    })
 	    const assignments = await assignmentsJson.json();
-	    console.log(assignments, 'assignments getItems')
 	    return assignments;
   	}
 
@@ -47,18 +46,27 @@ class HomeworkContainer extends Component {
 
 		const assignmentsParsed = await assignments.json();
 
-		console.log(assignmentsParsed, 'assignmentsParsed');
-
 		this.setState({assignments: [...this.state.assignments, assignmentsParsed.added_assignment]})
 
 		return assignmentsParsed;
 	}
 
-	removeAssignment = (e) => {
+	removeAssignment = async (e) => {
 		//Capture the id of the assignment for deletion
-		const id = e.currentTarget.id
-		//Filter through assignments and omit the item associated with the id
-		this.setState({assignments: this.state.assignments.filter((assignment, i) => i != id)})
+		const id = e.currentTarget.parentNode.id
+		console.log(id, 'remove Assignment id')
+
+		const removeItem = await fetch('http://localhost:9292/assignment/' + id, {
+			method: 'DELETE',
+			credentials: 'include'
+		});
+
+		const response = await removeItem.json();
+		if (response.success){
+			this.setState({assignments: this.state.assignments.filter((removeItem) => removeItem.id != id)});
+		} else {
+				
+		}
 		
 	}
 
