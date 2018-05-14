@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Homework from '../Homework';
 import CreateHomework from '../CreateHomework';
-import Modal from '../EditHomework';
+import EditHomeworkModal from '../EditHomeworkModal';
 
 class HomeworkContainer extends Component {
 	constructor (){
@@ -30,12 +30,28 @@ class HomeworkContainer extends Component {
 	      credentials: 'include'
 	    })
 	    const assignments = await assignmentsJson.json();
+	    console.log(assignments, 'assignments getItems')
 	    return assignments;
   	}
 
-	addAssignment = (assignment, e) => {
+	addAssignment = async (name) => {
 		//add assignment directly to the state
-		this.setState({assignments: [...this.state.assignments, assignment]})	
+
+		const assignments = await fetch('http://localhost:9292/assignment', {
+			method: 'POST',
+			body: JSON.stringify({
+				name:name
+			}),
+			credentials: 'include'
+		})
+
+		const assignmentsParsed = await assignments.json();
+
+		console.log(assignmentsParsed, 'assignmentsParsed');
+
+		this.setState({assignments: [...this.state.assignments, assignmentsParsed.added_assignment]})
+
+		return assignmentsParsed;
 	}
 
 	removeAssignment = (e) => {
@@ -103,7 +119,7 @@ class HomeworkContainer extends Component {
 				HOMEWORK CONTAINER
 				<Homework assignments={this.state.assignments} removeAssignment={this.removeAssignment} editAssignment={this.editAssignment}/>
 				<CreateHomework addAssignment={this.addAssignment} editAssignment={this.editAssignment}/>
-				<Modal showEdit={this.state.showEdit} closeEdit={this.closeEdit}/>
+				<EditHomeworkModal showEdit={this.state.showEdit} closeEdit={this.closeEdit}/>
 			</div>
 			)
 

@@ -4,8 +4,8 @@ const Homework = ({assignments, removeAssignment, editAssignment}) => {
 
 	const homeworkList = assignments.map((assignment,i) => {
 		return <li key={i}>{assignment.name} 
-					<button id={i} onClick={editAssignment}>EDIT</button>
-					<button id={i} onClick={removeAssignment}>DELETE</button>
+					<button id={assignment.i} onClick={editAssignment}>EDIT</button>
+					<button id={assignment.i} onClick={removeAssignment}>DELETE</button>
 				</li>	
 	})
 

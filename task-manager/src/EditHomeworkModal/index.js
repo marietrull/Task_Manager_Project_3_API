@@ -3,7 +3,7 @@ import './style.css'
 
 // Changed to a class --> because we can't actually type in our input
 // This is because props are immutable
-class Modal extends Component {
+class EditHomeworkModal extends Component {
 	// can pass props into your constructor
 	constructor (){
 		super();
@@ -20,7 +20,7 @@ class Modal extends Component {
 	}
 
 	componentWillReceiveProps(nextProps){
-		console.log(nextProps, " this is nextProps in Modal")
+		// console.log(nextProps, " this is nextProps in Modal")
 		this.setState({inputVal: nextProps.editedAssignment})
 	}
 
@@ -37,4 +37,4 @@ class Modal extends Component {
 	}
 }
 
-export default Modal;
+export default EditHomeworkModal;
