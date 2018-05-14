@@ -1,8 +1,21 @@
 class AssignmentController < ApplicationController
 
+	# Filter to prevent users from accessing routes without being logged
+
+	before do
+
+  		if !session[:logged_in]
+  			halt 200, {
+  				success:false,
+  				message:"Access Denied: Please Login.",
+  			}.to_json
+  		end
+  	end	
+
+
+
+
 	# Routes
-
-
 
 
 	# Index route for assignments belonging to current user
@@ -99,6 +112,7 @@ class AssignmentController < ApplicationController
 			message: "Updated assignment."
 		}.to_json
 	end	
+
 
 
 
