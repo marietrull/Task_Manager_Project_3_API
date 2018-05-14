@@ -108,7 +108,7 @@ class AssignmentController < ApplicationController
 
 		assignment = Assignment.find params[:id]
 
-		assignment.complete ? assignment.complete = false : assignment.complete = true
+		assignment.complete == true ? assignment.complete = false : assignment.complete = true
 
 		assignment.save
 
@@ -116,7 +116,7 @@ class AssignmentController < ApplicationController
 			success: true,
 			assignment_complete: assignment.complete,
 			message:"Assignment status updated."
-		}
+		}.to_json
 	end	
 
 
