@@ -62,7 +62,11 @@ class HomeworkContainer extends Component {
 
 		this.setState({assignments: [...this.state.assignments, assignmentsParsed.added_assignment]})
 
-		return assignmentsParsed;
+		this.setState({
+			showAdd: false
+		})
+
+		console.log(this.state.showAdd, 'showAdd after addAssignment')
 	}
 
 	removeAssignment = async (e) => {
@@ -84,67 +88,74 @@ class HomeworkContainer extends Component {
 		
 	}
 
-	editAssignment = (e) => {
-		//Make sure button works
+	openEdit = (e) => {
+		// //Make sure button works
 		console.log('Edit Clicked')
 
-		// set id equal to current target id
-		const id = e.currentTarget.id
-		console.log(id, "id in editAssignment")
+		// // set id equal to current target id
+		const id = parseInt(e.currentTarget.parentNode.id);
+		console.log(id, ' id of item for edit')
 
-		// const state = this.state;
-		// const editedItem = state.editedAssignment[id];
 
-		// console.log(state, 'state in editAssignment')
-		// console.log(editedItem, 'item to be edited')
-		// console.log(this.state.showEdit, 'edit status')
+		//previousSibling.id will give you a string --> not a number
+	    //parseInt because our database is looking for a number (we defined this)
 
-		// this.setState({
-		// 	showEdit: true,
-		// 	editedAssignment: this.state.assignments.id
-		// })
+	    const editedAssignment = this.state.assignments.find((assignment) => {
+	      return assignment.id === id 
+	    })
+
+	    console.log(editedAssignment, 'This is the editedItem')
+
+	    this.setState({
+	      showEdit: true,
+	      editedAssignment: editedAssignment
+	    })
 		
 	}
 
-	closeEdit = (e) => {
+	editAssignment = async (name, link, notes) => {
+		const editId = this.state.editedAssignment.id
+		console.log(editId, 'this is edit assignment id')
 
-		const id = e.currentTarget.id
-		console.log(id, "id in closeEdit")
+		console.log(name, 'name in edit assignment')
+		console.log(typeof(name), 'type of name')
 
-		// //find the index of the movie you're trying to edit
-		// const index = this.state.assignments.indexOf(this.state.assignment)
+		const assignment = await fetch('http://localhost:9292/assignment/' + editId, {
+			method: 'PUT',
+			body: JSON.stringify({
+				name: name,
+				link: link,
+				notes: notes
+			}),
+			credentials: 'include'
+		})
 
-		// console.log(index, 'index close edit')
+		console.log(this.state, 'state after Edit')
 
-		// //this is where we actually make the edit
-		// //we are mutating the data here --> would need to create a copy of state + mutate that with Object.assign typically to keep it immutable
+		const response = await assignment.json();
 
-		// const assignments = this.state.assignments;
-		// // assignments[index] = assignment;
-		
-		
-		// console.log(assignments , "this is assignments")
+		const editedAssignmentIndex = this.state.assignments.findIndex((assignment) => {
 
+			return assignment.editId == response.updated_assignment.editId
+			
+		})
 
-		// //set state
-		// this.setState({
-		// 	//close the modal
-		// 	showEdit: false,
-		// 	assignments: assignments,
-		// })
-		
+		const state = this.state;
+		state.assignments[editedAssignmentIndex] = response.updated_assignment;
+		state.showEdit = false;
+		this.setState(state)
+
 	}
+
 
 	render () {
-
-		console.log(this.state, 'render Homework Container')
 		return (
 			<div>
 				HOMEWORK CONTAINER
-				<Homework assignments={this.state.assignments} removeAssignment={this.removeAssignment} editAssignment={this.editAssignment}/>
+				<Homework assignments={this.state.assignments} removeAssignment={this.removeAssignment} openEdit={this.openEdit}/>
 				<button onClick={this.openAdd}> Add New Assignment </button>
-				<CreateHomeworkModal addAssignment={this.addAssignment} editAssignment={this.editAssignment} showAdd={this.state.showAdd}/>
-				<EditHomeworkModal showEdit={this.state.showEdit} closeEdit={this.closeEdit}/>
+				<CreateHomeworkModal addAssignment={this.addAssignment} openEdit={this.openEdit} showAdd={this.state.showAdd}/>
+				<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment}/>
 			</div>
 			)
 

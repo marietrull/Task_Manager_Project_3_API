@@ -30,6 +30,7 @@ class CreateHomeworkModal extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault();
+
 		this.props.addAssignment(this.state.name, this.state.link, this.state.notes);
 		this.setState({
 			name: '',
@@ -42,7 +43,6 @@ class CreateHomeworkModal extends Component {
 	render () {
 
 		const addClass = this.props.showAdd ? 'Add-Modal-Open' : 'Add-Modal-Closed'
-		console.log(addClass, 'this is CSS Class')
 
 		return (
 

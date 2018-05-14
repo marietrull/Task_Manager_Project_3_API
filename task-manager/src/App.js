@@ -31,10 +31,6 @@ class App extends Component {
 
 		const userInputVal = userInput.value;
 
-		console.log(pwInput, "pw");
-
-		console.log(userInput, "username");
-
 		if(buttonText === "Register"){
 
 			const registerJSON = await fetch("http://localhost:9292/user/register",

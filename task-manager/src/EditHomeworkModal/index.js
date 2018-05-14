@@ -9,28 +9,45 @@ class EditHomeworkModal extends Component {
 		super();
 
 		this.state = {
-			inputVal: ''
+			name: '',
+			link: '',
+			notes: ''
 		}
 	}
 
-	handleInput = (e) => {
-
-		this.setState({inputVal: e.currentTarget.value})
-
+	updateName = e => {
+		const name = e.currentTarget.value;
+		this.setState({name: name})
 	}
 
-	componentWillReceiveProps(nextProps){
-		// console.log(nextProps, " this is nextProps in Modal")
-		this.setState({inputVal: nextProps.editedAssignment})
+	updateLink = e => {
+		const link = e.currentTarget.value;
+		this.setState({link: link})
 	}
+
+	updateNotes = e => {
+		const notes = e.currentTarget.value;
+		this.setState({notes: notes})
+	}
+
+	handleSubmit = (editItem) => {
+
+		console.log('handle submit clicked')
+
+		this.props.editAssignment(this.state.name, this.state.link, this.state.notes)
+		
+	}
+
 
 	render () {
 		const cssClass = this.props.showEdit ? 'Modal-Open' : 'Modal-Closed'
 
 		return (
 			<div className={cssClass}>
-				<input type='text' placeholder='Assignment Name' value={this.state.inputVal} onChange={this.handleInput}/>
-				<button onClick={this.props.closeEdit}> Done </button>
+				<input type='name' placeholder='Assignment Name' onChange={this.updateName}/><br/>
+				<input id="link" type='text' placeholder='Github Link' onChange={this.updateLink}/><br/>
+				<input id="notes" type='text' placeholder='Notes' onChange={this.updateNotes}/><br/>
+				<button onClick={this.handleSubmit}> Done </button>
 			</div>
 
 		)

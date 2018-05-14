@@ -2,8 +2,6 @@ import React from 'react'
 
 const LoginRegister = ({loginAndRegister, registering,changeRegistering}) => {
 
-	console.log(registering);
-
 	return(
 	
 		<div>
