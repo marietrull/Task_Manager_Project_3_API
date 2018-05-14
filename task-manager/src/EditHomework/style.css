@@ -1,0 +1,19 @@
+.Modal-Closed {
+
+	display: none;
+
+}
+
+.Modal-Open {
+
+	display: block;
+	background-color: lavender;
+	text-align: center;
+	position: fixed;
+	left: 50;
+	width: 35%;
+	height: 200px;
+	margin-left:35%;
+	margin-top: 85px;
+
+}
