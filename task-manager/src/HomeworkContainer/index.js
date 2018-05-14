@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Homework from '../Homework';
-import CreateHomework from '../CreateHomework';
+import CreateHomeworkModal from '../CreateHomeworkModal';
 import EditHomeworkModal from '../EditHomeworkModal';
 
 class HomeworkContainer extends Component {
@@ -46,12 +46,14 @@ class HomeworkContainer extends Component {
   		
   	}
 
-	addAssignment = async (name) => {
+	addAssignment = async (name, link, notes) => {
 
 		const assignments = await fetch('http://localhost:9292/assignment', {
 			method: 'POST',
 			body: JSON.stringify({
-				name:name
+				name: name,
+				link: link,
+				notes: notes
 			}),
 			credentials: 'include'
 		})
@@ -141,7 +143,7 @@ class HomeworkContainer extends Component {
 				HOMEWORK CONTAINER
 				<Homework assignments={this.state.assignments} removeAssignment={this.removeAssignment} editAssignment={this.editAssignment}/>
 				<button onClick={this.openAdd}> Add New Assignment </button>
-				<CreateHomework addAssignment={this.addAssignment} editAssignment={this.editAssignment} showAdd={this.state.showAdd}/>
+				<CreateHomeworkModal addAssignment={this.addAssignment} editAssignment={this.editAssignment} showAdd={this.state.showAdd}/>
 				<EditHomeworkModal showEdit={this.state.showEdit} closeEdit={this.closeEdit}/>
 			</div>
 			)

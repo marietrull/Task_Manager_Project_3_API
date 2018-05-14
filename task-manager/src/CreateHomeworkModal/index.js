@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './style.css'
 
-class CreateHomework extends Component {
+class CreateHomeworkModal extends Component {
 
 	constructor (){
 		super();
@@ -18,11 +18,23 @@ class CreateHomework extends Component {
 		this.setState({name: name})
 	}
 
+	updateLink = e => {
+		const link = e.currentTarget.value;
+		this.setState({link: link})
+	}
+
+	updateNotes = e => {
+		const notes = e.currentTarget.value;
+		this.setState({notes: notes})
+	}
+
 	handleSubmit = e => {
 		e.preventDefault();
-		this.props.addAssignment(this.state.name);
+		this.props.addAssignment(this.state.name, this.state.link, this.state.notes);
 		this.setState({
-			name: ''
+			name: '',
+			link: '',
+			notes: ''
 		})
 
 	}
@@ -41,7 +53,9 @@ class CreateHomework extends Component {
 				<br/>
 
 				<label htmlFor='item'/>
-				<input id="name" type='text' placeholder='Assignment Name' onChange={this.updateName}/>
+				<input id="name" type='text' placeholder='Assignment Name' onChange={this.updateName}/><br/>
+				<input id="link" type='text' placeholder='Github Link' onChange={this.updateLink}/><br/>
+				<input id="notes" type='text' placeholder='Notes' onChange={this.updateNotes}/><br/>
 				<input type='submit'/>
 
 			</form>
@@ -50,4 +64,4 @@ class CreateHomework extends Component {
 	}
 }
 
-export default CreateHomework;
+export default CreateHomeworkModal;
