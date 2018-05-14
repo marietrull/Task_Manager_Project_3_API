@@ -13,7 +13,9 @@ class App extends Component {
 
 			logged: false,
 
-			registering: false
+			registering: false,
+
+			message:""
 		}
 	}
 
@@ -46,7 +48,7 @@ class App extends Component {
 
 			const registerResponse = await registerJSON.json();
 
-			registerResponse.success == true ? this.setState({logged:true}) : this.setState({logged:false})
+			registerResponse.success  ? this.setState({logged:true, message:registerResponse.message}) : this.setState({message: registerResponse.message})
 		}
 
 
@@ -60,7 +62,7 @@ class App extends Component {
 
 			const loginResponse = await loginJSON.json();
 
-			loginResponse.success == true ? this.setState({logged:true}) : this.setState({logged:false})
+			loginResponse.success ? this.setState({logged:true, message:loginResponse.message}) : this.setState({message: loginResponse.message})
 		}
 
 
@@ -81,6 +83,8 @@ class App extends Component {
     	return (
     	  <div className="App">
     	    TASK MANAGER PROJECT 3
+
+    	    {this.state.message !== "" ? <p>{this.state.message}</p> : null }
 
     	  	{this.state.logged ? <HomeworkContainer /> : <LoginRegister loginAndRegister={this.loginAndRegister} registering={this.state.registering} changeRegistering={this.changeRegistering}/>}  
 
