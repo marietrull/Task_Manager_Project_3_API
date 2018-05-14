@@ -9,6 +9,7 @@ class HomeworkContainer extends Component {
 
 		this.state = {
 			assignments: [],
+			showAdd: false,
 			showEdit: false,
 			editedAssignment: ''
 		}
@@ -33,8 +34,19 @@ class HomeworkContainer extends Component {
 	    return assignments;
   	}
 
+  	openAdd = async (e) => {
+
+  		this.setState({
+			showAdd: true
+		})
+
+  		console.log(this.state, 'state openAdd')
+
+  		console.log('New Assignment clicked')
+  		
+  	}
+
 	addAssignment = async (name) => {
-		//add assignment directly to the state
 
 		const assignments = await fetch('http://localhost:9292/assignment', {
 			method: 'POST',
@@ -122,11 +134,14 @@ class HomeworkContainer extends Component {
 	}
 
 	render () {
+
+		console.log(this.state, 'render Homework Container')
 		return (
 			<div>
 				HOMEWORK CONTAINER
 				<Homework assignments={this.state.assignments} removeAssignment={this.removeAssignment} editAssignment={this.editAssignment}/>
-				<CreateHomework addAssignment={this.addAssignment} editAssignment={this.editAssignment}/>
+				<button onClick={this.openAdd}> Add New Assignment </button>
+				<CreateHomework addAssignment={this.addAssignment} editAssignment={this.editAssignment} showAdd={this.state.showAdd}/>
 				<EditHomeworkModal showEdit={this.state.showEdit} closeEdit={this.closeEdit}/>
 			</div>
 			)

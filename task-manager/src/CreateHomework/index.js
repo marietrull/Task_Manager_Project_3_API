@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './style.css'
 
 class CreateHomework extends Component {
 
@@ -28,9 +29,12 @@ class CreateHomework extends Component {
 
 	render () {
 
+		const addClass = this.props.showAdd ? 'Add-Modal-Open' : 'Add-Modal-Closed'
+		console.log(addClass, 'this is CSS Class')
+
 		return (
 
-			<form onSubmit={this.handleSubmit}>
+			<form className={addClass} onSubmit={this.handleSubmit}>
 
 				ADD ASSIGNMENT
 				<br/>
