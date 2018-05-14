@@ -8,11 +8,30 @@ class HomeworkContainer extends Component {
 		super();
 
 		this.state = {
-			assignments: ['Homework 1', 'Homework 2', 'Homework 3', 'Homework 4'],
+			assignments: [],
 			showEdit: false,
 			editedAssignment: ''
 		}
 	}
+
+	componentDidMount(){
+    this.getItems()
+    .then((response) => {
+      this.setState({assignments: response.user_assignments})
+    })
+    .catch ((err) => {
+      console.log(err)
+    })
+
+	}
+
+	getItems = async () => {
+	    const assignmentsJson = await fetch('http://localhost:9292/assignment', {
+	      credentials: 'include'
+	    })
+	    const assignments = await assignmentsJson.json();
+	    return assignments;
+  	}
 
 	addAssignment = (assignment, e) => {
 		//add assignment directly to the state
@@ -32,38 +51,49 @@ class HomeworkContainer extends Component {
 		console.log('Edit Clicked')
 
 		// set id equal to current target id
-		const id = e.currentTarget.previousSibling.id
-		console.log(id)
+		const id = e.currentTarget.id
+		console.log(id, "id in editAssignment")
 
-		this.setState({
-			showEdit: true,
-			editedAssignment: this.state.assignments[id]
-		})
+		// const state = this.state;
+		// const editedItem = state.editedAssignment[id];
+
+		// console.log(state, 'state in editAssignment')
+		// console.log(editedItem, 'item to be edited')
+		// console.log(this.state.showEdit, 'edit status')
+
+		// this.setState({
+		// 	showEdit: true,
+		// 	editedAssignment: this.state.assignments.id
+		// })
+		
 	}
 
-	closeEdit = (assignment) => {
+	closeEdit = (e) => {
 
-		//find the index of the movie you're trying to edit
-		const index = this.state.assignments.indexOf(this.state.editedAssignment)
+		const id = e.currentTarget.id
+		console.log(id, "id in closeEdit")
 
-		console.log(index, 'index closeedit')
+		// //find the index of the movie you're trying to edit
+		// const index = this.state.assignments.indexOf(this.state.assignment)
 
-		//this is where we actually make the edit
-		//we are mutating the data here --> would need to create a copy of state + mutate that with Object.assign typically to keep it immutable
+		// console.log(index, 'index close edit')
 
-		const assignments = this.state.assignments;
-		assignments[index] = assignment;
+		// //this is where we actually make the edit
+		// //we are mutating the data here --> would need to create a copy of state + mutate that with Object.assign typically to keep it immutable
+
+		// const assignments = this.state.assignments;
+		// // assignments[index] = assignment;
 		
 		
-		console.log(assignments , "this is assignments")
+		// console.log(assignments , "this is assignments")
 
 
-		//set state
-		this.setState({
-			//close the modal
-			showEdit: false,
-			assignments: assignments,
-		})
+		// //set state
+		// this.setState({
+		// 	//close the modal
+		// 	showEdit: false,
+		// 	assignments: assignments,
+		// })
 		
 	}
 

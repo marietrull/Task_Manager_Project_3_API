@@ -20,18 +20,18 @@ class Modal extends Component {
 	}
 
 	componentWillReceiveProps(nextProps){
-
-		this.setState({inputVal: nextProps.editedMovie})
+		console.log(nextProps, " this is nextProps in Modal")
+		this.setState({inputVal: nextProps.editedAssignment})
 	}
 
 	render () {
-	const cssClass = this.props.showEdit ? 'Modal-Open' : 'Modal-Closed'
+		const cssClass = this.props.showEdit ? 'Modal-Open' : 'Modal-Closed'
 
-	return (
-	<div className={cssClass}>
-		<input type='text' placeholder='Assignment Name' value={this.state.inputVal} onChange={this.handleInput}/>
-		<button onClick={this.props.closeEdit}> Done </button>
-	</div>
+		return (
+			<div className={cssClass}>
+				<input type='text' placeholder='Assignment Name' value={this.state.inputVal} onChange={this.handleInput}/>
+				<button onClick={this.props.closeEdit}> Done </button>
+			</div>
 
 		)
 	}

@@ -5,7 +5,10 @@ class CreateHomework extends Component {
 	constructor (){
 		super();
 		this.state = {
-			name: ''
+			name: '',
+			link: '',
+			notes: '',
+			complete: false
 		}
 	}
 
