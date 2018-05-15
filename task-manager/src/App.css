@@ -9,7 +9,9 @@ body {
 }
 
 .Header {
-
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   height: 230px;
   background-color:#7B7D7D;
   box-shadow: -5px 5px 10px #333;
@@ -17,6 +19,9 @@ body {
 }
 
 .Logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 175px;
   width:175px;
   border-radius: 50%;
@@ -43,6 +48,7 @@ body {
 .Heading {
   font-size: 400%;
   color: #fff;
+  margin-right: 100px;
   /*position: absolute;*/
   /*left: 18%;*/
   /*top: 30%;*/

@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 import HomeworkContainer from './HomeworkContainer';
 import LoginRegister from './LoginRegister';
-import ShowHWModal from './ShowHWModal'
 
 class App extends Component {
 
@@ -22,11 +21,13 @@ class App extends Component {
 
 	loginAndRegister= async(e)=>{
 
+		console.log(e.target.parentNode.parentNode.childNodes[1].childNodes[0].value)
+
 		const buttonText = e.target.innerText;
 
-		const pwInput = e.target.previousSibling
+		const pwInput = e.target.parentNode.parentNode.childNodes[1].childNodes[0].value
 
-		const userInput = pwInput.previousSibling
+		const userInput = e.target.parentNode.parentNode.childNodes[0].childNodes[0].value
 
 		const pwInputVal = pwInput.value;
 
@@ -82,9 +83,9 @@ class App extends Component {
 
     	  	<div className="Header">
 
-    	  		<div className="Logo"><span className="LogoTitle">TM</span></div>
+    	  		<div className="Logo"><div className="LogoTitle">TM</div></div>
 
-    	  		<span className="Heading">GENERAL ASSEMBLY TASK MANAGER</span>
+    	  		<div className="Heading">GENERAL ASSEMBLY TASK MANAGER</div>
 
     	  	</div>
 

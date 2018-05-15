@@ -8,17 +8,29 @@ const LoginRegister = ({loginAndRegister, registering,changeRegistering}) => {
 	
 		<div className="LogRegField" >
 
-			<div className="LoginTab Tab" onClick={changeRegistering}>Login</div> 
 
-			<div className="RegisterTab Tab" onClick={changeRegistering}>Register</div> 
+		
+
+			<div className="TabContain">
+				<div className="LoginTab Tab" onClick={changeRegistering}>Login</div> 
+
+				<div className="RegisterTab Tab" onClick={changeRegistering}>Register</div>
+			</div>	
+
+
+
 
 			<div className="LogRegContain" >
-				<input className="InpUser" type="text" placeholder={registering ? "Create Username" : "Username"} />
+				<div><input className="InpUser" type="text" placeholder={registering ? "Create Username" : "Username"} /></div>
 
-				<input className="InpPass" type="password" placeholder={registering ? "Create Password" : "Password"}/>
+				<div><input className="InpPass" type="password" placeholder={registering ? "Create Password" : "Password"}/></div>
 
-				<button className="LogBtn" onClick={loginAndRegister}> {registering ? "Register" : "Login"} </button>
+				<div className="LogBtnDiv" ><button className="LogBtn" onClick={loginAndRegister}> {registering ? "Register" : "Login"} </button></div>
 			</div>
+
+
+
+
 
 		</div>
 	)

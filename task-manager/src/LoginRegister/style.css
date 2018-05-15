@@ -1,8 +1,12 @@
 .LogRegField {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	border: 3px dotted #F2F3F4;
 	height:600px;
 /*	position: relative;*/
 	margin-top:15px;
+
 }
 
 .Tab {
@@ -10,29 +14,40 @@
 	cursor:pointer;
 	width:5%; 
 	border: 3px solid #333;
-	color: #333; 	
+	color: #333;
 }
 
 
-
-.RegisterTab {
+.LoginTab {
+	display: inline-block;
 	height: 5%;
-	width:8%;
+	width:25%;
 	font-size: 25px;
+	float: right;
+
+	/*position: absolute;*/
+	/*top:35.6%;*/
+	/*right: 35.3%;*/
+}
+.RegisterTab {
+	display: inline-block;
+	height: 5%;
+	width:25%;
+	font-size: 25px;
+	float: right;
 	/*position: absolute;*/
 	/*top:35.6%;*/
 	/*right: 27.3%;*/
 }
 
-.LoginTab {
-	height: 5%;
-	width:8%;
-	font-size: 25px;
-	/*position: absolute;*/
-	/*top:35.6%;*/
-	/*right: 35.3%;*/
-}
 
+
+.TabContain {
+	width: 45%;
+	margin-left: auto;
+	margin-right: auto;
+
+}
 
 
 .Tab:hover {
@@ -42,8 +57,11 @@
 
 .LogRegContain {
 	/*position: relative;*/
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 	border:3px solid #333;
-	margin-top: 15%;
+
 	height: 300px;
 	width: 45%;
 	margin-left: auto;
@@ -86,4 +104,7 @@
 	/*top: 40%;*/
 
 }
+
+
+
 
