@@ -158,6 +158,12 @@ class HomeworkContainer extends Component {
 
 	}
 
+	closeEditModal = () => {
+		this.setState({
+			showEdit: false
+		});
+	}
+
 	showHWModal = async (e)=>{
 		console.log(e.target.id);
 
@@ -171,13 +177,18 @@ class HomeworkContainer extends Component {
 		const hwResponse = await hwJSON.json();
 
 
-		this.setState({hwModalOpen: true, hwShowing: hwResponse.assignment});
+		this.setState({
+			hwModalOpen: true,
+			hwShowing: hwResponse.assignment
+		});
 
 	}
 
 
 	closeHWModal = () => {
-		this.setState({hwModalOpen: false});
+		this.setState({
+			hwModalOpen: false
+		});
 	}
 
 
@@ -194,7 +205,7 @@ class HomeworkContainer extends Component {
 
 				<ShowHWModal hwShowing={this.state.hwShowing} hwModalOpen={this.state.hwModalOpen} closeHWModal={this.closeHWModal}/>
 
-				<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment} removeAssignment={this.removeAssignment} editedAssignment={this.state.editedAssignment}/>
+				<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment} removeAssignment={this.removeAssignment} editedAssignment={this.state.editedAssignment} closeEditModal={this.closeEditModal}/>
 			</div>
 			
 			)

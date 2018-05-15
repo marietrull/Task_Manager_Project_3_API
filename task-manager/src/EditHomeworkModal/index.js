@@ -56,18 +56,22 @@ class EditHomeworkModal extends Component {
 
 	render () {
 
-		const cssClass = this.props.showEdit ? 'Modal-Open' : 'Modal-Closed'
+		const cssClass = this.props.showEdit ? 'modal' : 'modalNone'
 
 		return (
 			<div className={cssClass}>
-				<label htmlFor="name">Name: </label>
-				<input id="name" type='text' value={this.state.name} placeholder='Assignment Name' onChange={this.updateName}/><br/>
-				<label htmlFor='link'>Link: </label>				
-				<input id="link" type='text' value={this.state.link} placeholder='Github Link' onChange={this.updateLink}/><br/>
-				<label htmlFor='notes'>Notes: </label>	
-				<textArea id="notes" type='text' value={this.state.notes} placeholder='Notes' onChange={this.updateNotes}> </textArea><br/>
-				<button onClick={this.props.removeAssignment}> DELETE </button>
-				<input onClick={this.handleSubmit} type='submit'/>
+				<div className="modal-content">
+					<span onClick={this.props.closeEditModal} className="close">&times;</span>
+					<div id='newHead'> EDIT ASSIGNMENT </div>
+					<label htmlFor="name">Name: </label>
+					<input id="name" type='text' value={this.state.name} placeholder='Assignment Name' onChange={this.updateName}/><br/>
+					<label htmlFor='link'>Link: </label>				
+					<input id="link" type='text' value={this.state.link} placeholder='Github Link' onChange={this.updateLink}/><br/>
+					<label htmlFor='notes'>Notes: </label>	
+					<textArea id="notes" type='text' value={this.state.notes} placeholder='Notes' onChange={this.updateNotes}> </textArea><br/>
+					<button onClick={this.props.removeAssignment}> DELETE </button>
+					<input onClick={this.handleSubmit} type='submit'/>
+				</div>
 			</div>
 
 		)
