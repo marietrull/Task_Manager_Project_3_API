@@ -15,6 +15,21 @@ class EditHomeworkModal extends Component {
 		}
 	}
 
+	componentWillReceiveProps(nextProps){
+
+		console.log(nextProps.editedAssignment, 'this is editedAssignment in compenent will Receive Props')
+
+		if (nextProps.editedAssignment === ''){
+			console.log(nextProps.editedAssignment, typeof nextProps.editedAssignment)
+		} else {
+			this.setState({
+				name: nextProps.editedAssignment.name,
+				link: nextProps.editedAssignment.link,
+				notes: nextProps.editedAssignment.notes
+			})
+		}
+	}
+
 	updateName = e => {
 		const name = e.currentTarget.value;
 		this.setState({name: name})
@@ -40,15 +55,18 @@ class EditHomeworkModal extends Component {
 
 
 	render () {
+
 		const cssClass = this.props.showEdit ? 'Modal-Open' : 'Modal-Closed'
 
 		return (
 			<div className={cssClass}>
-				<input type='name' placeholder='Assignment Name' onChange={this.updateName}/><br/>
-				<input id="link" type='text' placeholder='Github Link' onChange={this.updateLink}/><br/>
-				<input id="notes" type='text' placeholder='Notes' onChange={this.updateNotes}/><br/>
-				<button onClick={this.props.removeAssignment}>DELETE</button>
-				<button onClick={this.handleSubmit}> Done </button>
+				<label htmlFor="name">Name: </label>
+				<input id="name" type='text' value={this.state.name} placeholder='Assignment Name' onChange={this.updateName}/><br/>
+				<label htmlFor='link'>Link: </label>				
+				<input id="link" type='text' value={this.state.link} placeholder='Github Link' onChange={this.updateLink}/><br/>
+				<label htmlFor='notes'>Notes: </label>	
+				<textArea id="notes" type='text' value={this.state.notes} placeholder='Notes' onChange={this.updateNotes}> </textArea><br/>
+				<input type='submit'/>
 			</div>
 
 		)

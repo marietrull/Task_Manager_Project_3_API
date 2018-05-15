@@ -10,7 +10,7 @@ const Homework = ({assignments, openEdit, showHWModal}) => {
 
 	return(
 		<div>
-		{homeworkList}
+			{homeworkList}
 		</div>
 	)
 }
