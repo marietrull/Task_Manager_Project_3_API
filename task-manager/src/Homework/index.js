@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import './style.css'
 
 const Homework = ({assignments, openEdit}) => {
 
 	const homeworkList = assignments.map((assignment,i) => {
-		return <li id={assignment.id} key={i}>{'NAME: ' + assignment.name} 
-					<button  onClick={openEdit}>EDIT</button>
+		return <li className='assignmentList' id={assignment.id} key={i}>{'NAME: ' + assignment.name} 
+					<button className='editButton' onClick={openEdit}>EDIT</button>
 				</li>	
 	})
 
 	return(
-		<div>
+		<div id='homeworkShow'>
 			{homeworkList}
 		</div>
 	)

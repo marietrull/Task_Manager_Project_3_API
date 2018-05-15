@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Homework from '../Homework';
 import CreateHomeworkModal from '../CreateHomeworkModal';
 import EditHomeworkModal from '../EditHomeworkModal';
+import './style.css'
 
 class HomeworkContainer extends Component {
 	constructor (){
@@ -146,13 +147,14 @@ class HomeworkContainer extends Component {
 
 	render () {
 		return (
-			<div>
-				HOMEWORK CONTAINER
+
+			<div id='homeworkContainer'>
 				<Homework assignments={this.state.assignments} openEdit={this.openEdit}/>
-				<button onClick={this.openAdd}> Add New Assignment </button>
+				<button id='addButton' onClick={this.openAdd}> Add New Assignment </button>
 				<CreateHomeworkModal addAssignment={this.addAssignment} openEdit={this.openEdit} showAdd={this.state.showAdd}/>
 				<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment} removeAssignment={this.removeAssignment} editedAssignment={this.state.editedAssignment}/>
 			</div>
+			
 			)
 
 	}
