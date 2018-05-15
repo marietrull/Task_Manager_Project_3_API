@@ -178,20 +178,32 @@ class HomeworkContainer extends Component {
 	render () {
 		console.log(this.state);
 		return (
+			<div className="LogRegField">
 
 
-			<div id='homeworkContainer'>
-				<Homework assignments={this.state.assignments} openEdit={this.openEdit}showHWModal={this.showHWModal}/>
-				<button id='addButton' onClick={this.openAdd}> Add New Assignment </button>
+				<div className="MainTab">
+					<div className="LoginTab Tab" >Outcomes</div> 
 
-				<CreateHomeworkModal addAssignment={this.addAssignment} openEdit={this.openEdit} showAdd={this.state.showAdd}/>
+					<div className="RegisterTab Tab" >Homework</div>
+				</div>	
 
-				<ShowHWModal hwShowing={this.state.hwShowing} hwModalOpen={this.state.hwModalOpen} closeModal={this.closeModal}/>
 
-				<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment} removeAssignment={this.removeAssignment} editedAssignment={this.state.editedAssignment}/>
+
+				<div id='homeworkContainer'>
+					<Homework assignments={this.state.assignments} openEdit={this.openEdit}showHWModal={this.showHWModal}/>
+					<button id='addButton'  onClick={this.openAdd}> Add New Assignment </button>
+
+					<CreateHomeworkModal addAssignment={this.addAssignment} openEdit={this.openEdit} showAdd={this.state.showAdd}/>
+
+					<ShowHWModal hwShowing={this.state.hwShowing} hwModalOpen={this.state.hwModalOpen} closeModal={this.closeModal}/>
+
+					<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment} removeAssignment={this.removeAssignment} editedAssignment={this.state.editedAssignment}/>
+				</div>
+
+
+
 			</div>
-			
-			)
+		)
 
 	}
 }

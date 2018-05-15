@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 
 
-const LoginRegister = ({loginAndRegister, registering,changeRegistering}) => {
+const LoginRegister = ({loginAndRegister, registering, changeRegistering}) => {
 
 	return(
 	
