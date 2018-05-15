@@ -1,0 +1,18 @@
+#homeworkContainer{
+	background-color: #d0d0d0;
+	border-style: solid;
+	border-color: black;
+	border-width: 3px;
+	width: 65%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 40px;
+}
+
+#addButton{
+	border-style: solid;
+	border-color: black;
+	border-width: 1.5px;
+	margin-top: 10px;
+	float: right;
+}

@@ -3,6 +3,8 @@ import Homework from '../Homework';
 import CreateHomeworkModal from '../CreateHomeworkModal';
 import EditHomeworkModal from '../EditHomeworkModal';
 import ShowHWModal from '../ShowHWModal'
+import './style.css'
+
 
 class HomeworkContainer extends Component {
 	constructor (){
@@ -176,16 +178,19 @@ class HomeworkContainer extends Component {
 	render () {
 		console.log(this.state);
 		return (
-			<div>
-				HOMEWORK CONTAINER
-				<Homework assignments={this.state.assignments} openEdit={this.openEdit} showHWModal={this.showHWModal}/>
-				<button onClick={this.openAdd}> Add New Assignment </button>
+
+
+			<div id='homeworkContainer'>
+				<Homework assignments={this.state.assignments} openEdit={this.openEdit}showHWModal={this.showHWModal}/>
+				<button id='addButton' onClick={this.openAdd}> Add New Assignment </button>
+
 				<CreateHomeworkModal addAssignment={this.addAssignment} openEdit={this.openEdit} showAdd={this.state.showAdd}/>
 
 				<ShowHWModal hwShowing={this.state.hwShowing} hwModalOpen={this.state.hwModalOpen} closeModal={this.closeModal}/>
 
 				<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment} removeAssignment={this.removeAssignment} editedAssignment={this.state.editedAssignment}/>
 			</div>
+			
 			)
 
 	}
