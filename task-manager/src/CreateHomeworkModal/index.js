@@ -52,8 +52,9 @@ class CreateHomeworkModal extends Component {
 				<br/>
 				<br/>
 
-				<label htmlFor='item'/>
+
 				<input id="name" type='text' placeholder='Assignment Name' onChange={this.updateName}/><br/>
+				<label htmlFor='link'>link</label>				
 				<input id="link" type='text' placeholder='Github Link' onChange={this.updateLink}/><br/>
 				<input id="notes" type='text' placeholder='Notes' onChange={this.updateNotes}/><br/>
 				<input type='submit'/>

@@ -10,7 +10,7 @@ const Homework = ({assignments, openEdit}) => {
 
 	return(
 		<div>
-		{homeworkList}
+			{homeworkList}
 		</div>
 	)
 }

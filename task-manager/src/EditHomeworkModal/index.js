@@ -15,6 +15,21 @@ class EditHomeworkModal extends Component {
 		}
 	}
 
+	componentWillReceiveProps(nextProps){
+
+		console.log(nextProps.editedAssignment, 'this is editedAssignment in compenent will Receive Props')
+
+		if (nextProps.editedAssignment === ''){
+			console.log(nextProps.editedAssignment, typeof nextProps.editedAssignment)
+		} else {
+			this.setState({
+				name: nextProps.editedAssignment.name,
+				link: nextProps.editedAssignment.link,
+				notes: nextProps.editedAssignment.notes
+			})
+		}
+	}
+
 	updateName = e => {
 		const name = e.currentTarget.value;
 		this.setState({name: name})
@@ -40,8 +55,6 @@ class EditHomeworkModal extends Component {
 
 
 	render () {
-
-		console.log(this.state, 'state in EditHomeworkModal')
 
 		const cssClass = this.props.showEdit ? 'Modal-Open' : 'Modal-Closed'
 

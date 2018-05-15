@@ -100,10 +100,6 @@ class HomeworkContainer extends Component {
 		const id = parseInt(e.currentTarget.parentNode.id);
 		console.log(id, ' id of item for edit')
 
-
-		//previousSibling.id will give you a string --> not a number
-	    //parseInt because our database is looking for a number (we defined this)
-
 	    const editedAssignment = this.state.assignments.find((assignment) => {
 	      return assignment.id === id 
 	    })
@@ -119,10 +115,6 @@ class HomeworkContainer extends Component {
 
 	editAssignment = async (name, link, notes) => {
 		const editId = this.state.editedAssignment.id
-		console.log(editId, 'this is edit assignment id')
-
-		console.log(name, 'name in edit assignment')
-		console.log(typeof(name), 'type of name')
 
 		const assignment = await fetch('http://localhost:9292/assignment/' + editId, {
 			method: 'PUT',
@@ -140,9 +132,9 @@ class HomeworkContainer extends Component {
 
 		const editedAssignmentIndex = this.state.assignments.findIndex((assignment) => {
 
-			return assignment.editId == response.updated_assignment.editId
+			return assignment.id === response.updated_assignment.id
 			
-		})
+		})		
 
 		const state = this.state;
 		state.assignments[editedAssignmentIndex] = response.updated_assignment;
@@ -153,15 +145,13 @@ class HomeworkContainer extends Component {
 
 
 	render () {
-
-		console.log(this.state, 'state in Render')
 		return (
 			<div>
 				HOMEWORK CONTAINER
 				<Homework assignments={this.state.assignments} openEdit={this.openEdit}/>
 				<button onClick={this.openAdd}> Add New Assignment </button>
 				<CreateHomeworkModal addAssignment={this.addAssignment} openEdit={this.openEdit} showAdd={this.state.showAdd}/>
-				<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment} removeAssignment={this.removeAssignment}/>
+				<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment} removeAssignment={this.removeAssignment} editedAssignment={this.state.editedAssignment}/>
 			</div>
 			)
 
