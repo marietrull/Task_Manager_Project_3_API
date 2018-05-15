@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Homework from '../Homework';
 import CreateHomeworkModal from '../CreateHomeworkModal';
 import EditHomeworkModal from '../EditHomeworkModal';
+import ShowHWModal from '../ShowHWModal'
 
 class HomeworkContainer extends Component {
 	constructor (){
@@ -11,7 +12,9 @@ class HomeworkContainer extends Component {
 			assignments: [],
 			showAdd: false,
 			showEdit: false,
-			editedAssignment: ''
+			editedAssignment: '',
+			hwModalOpen: false,
+			hwShowing:[]
 		}
 	}
 
@@ -119,8 +122,8 @@ class HomeworkContainer extends Component {
 
 		console.log(name, 'name in edit assignment')
 		console.log(typeof(name), 'type of name')
-
-		const assignment = await fetch('http://localhost:9292/assignment/' + editId, {
+														// Added syntactic sugar
+		const assignment = await fetch(`http://localhost:9292/assignment/${editId}`, {
 			method: 'PUT',
 			body: JSON.stringify({
 				name: name,
@@ -147,15 +150,39 @@ class HomeworkContainer extends Component {
 
 	}
 
+	showHWModal = async (e)=>{
+		console.log(e.target.id);
+
+		const hwId = e.target.id;
+
+		const hwJSON = await fetch(`http://localhost:9292/assignment/${hwId}`, {
+			credentials:'include'
+		});
+
+
+		const hwResponse = await hwJSON.json();
+
+
+		this.setState({hwModalOpen: true, hwShowing: hwResponse.assignment});
+
+	}
+
+
+	closeModal = () => {
+		this.setState({hwModalOpen: false});
+	}
+
 
 	render () {
+		console.log(this.state);
 		return (
 			<div>
 				HOMEWORK CONTAINER
-				<Homework assignments={this.state.assignments} openEdit={this.openEdit}/>
+				<Homework assignments={this.state.assignments} openEdit={this.openEdit} showHWModal={this.showHWModal}/>
 				<button onClick={this.openAdd}> Add New Assignment </button>
 				<CreateHomeworkModal addAssignment={this.addAssignment} openEdit={this.openEdit} showAdd={this.state.showAdd}/>
 				<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment} removeAssignment={this.removeAssignment}/>
+				<ShowHWModal hwShowing={this.state.hwShowing} hwModalOpen={this.state.hwModalOpen} closeModal={this.closeModal}/>
 			</div>
 			)
 

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-const Homework = ({assignments, openEdit}) => {
+const Homework = ({assignments, openEdit, showHWModal}) => {
 
 	const homeworkList = assignments.map((assignment,i) => {
-		return <li id={assignment.id} key={i}>{'NAME: ' + assignment.name} 
+		return <li onClick={showHWModal} id={assignment.id} key={i}>{'NAME: ' + assignment.name} 
 					<button  onClick={openEdit}>EDIT</button>
 				</li>	
 	})

@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import HomeworkContainer from './HomeworkContainer';
 import LoginRegister from './LoginRegister';
+import ShowHWModal from './ShowHWModal'
 
 class App extends Component {
 

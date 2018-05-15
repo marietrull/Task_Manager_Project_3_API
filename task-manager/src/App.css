@@ -13,7 +13,7 @@ body {
   height: 230px;
   background-color:#7B7D7D;
   box-shadow: -5px 5px 10px #333;
-  position: relative;
+  /*position: relative;*/
 }
 
 .Logo {
@@ -24,28 +24,28 @@ body {
   font-size:90px;
   color: rgb(255,255,255);
   border: 3px solid #333;
-  position: relative;
-  position: absolute;
-  left: 4%;
-  top:9%;
+  /*position: relative;*/
+  /*position: absolute;*/
+  /*left: 4%;*/
+  /*top:9%;*/
 
 }
 
 .LogoTitle {
 
-  position: absolute;
+  /*position: absolute;*/
 
-  top:20%;
+  /*top:20%;*/
 
-  right:17%;
+  /*right:17%;*/
 }
 
 .Heading {
   font-size: 400%;
   color: #fff;
-  position: absolute;
-  left: 18%;
-  top: 30%;
+  /*position: absolute;*/
+  /*left: 18%;*/
+  /*top: 30%;*/
 
 
 }

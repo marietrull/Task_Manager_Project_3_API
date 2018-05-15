@@ -1,7 +1,7 @@
 .LogRegField {
 	border: 3px dotted #F2F3F4;
 	height:600px;
-	position: relative;
+/*	position: relative;*/
 	margin-top:15px;
 }
 
@@ -19,18 +19,18 @@
 	height: 5%;
 	width:8%;
 	font-size: 25px;
-	position: absolute;
-	top:35.6%;
-	right: 27.3%;
+	/*position: absolute;*/
+	/*top:35.6%;*/
+	/*right: 27.3%;*/
 }
 
 .LoginTab {
 	height: 5%;
 	width:8%;
 	font-size: 25px;
-	position: absolute;
-	top:35.6%;
-	right: 35.3%;
+	/*position: absolute;*/
+	/*top:35.6%;*/
+	/*right: 35.3%;*/
 }
 
 
@@ -41,7 +41,7 @@
 
 
 .LogRegContain {
-	position: relative;
+	/*position: relative;*/
 	border:3px solid #333;
 	margin-top: 15%;
 	height: 300px;
@@ -58,9 +58,9 @@
 	padding-left: 10px;
 	height: 15%;
 	width: 60%;
-	position: absolute;
-	right:25%;
-	bottom: 30%;
+	/*position: absolute;*/
+	/*right:25%;*/
+	/*bottom: 30%;*/
 }
 
 .InpUser {
@@ -70,20 +70,20 @@
 	padding-left: 10px;
 	height: 15%;
 	width: 60%;
-	position: absolute;
-	bottom: 55%;
-	right:25%;
+	/*position: absolute;*/
+	/*bottom: 55%;*/
+	/*right:25%;*/
 }
 
 .LogBtn {
 	color: #333;
 	border:3px solid #333;
-	position: absolute;
+	/*position: absolute;*/
 	border-radius: 10px;
 	font-size: 30px;
 	height:15%;
-	right: 5%;
-	top: 40%;
+	/*right: 5%;*/
+	/*top: 40%;*/
 
 }
 
