@@ -12,9 +12,13 @@ const Homework = ({assignments, openEdit, showHWModal}) => {
 	})
 
 	return(
+
+			
+
 		<div id='homeworkShow'>
 			{homeworkList}
 		</div>
+
 	)
 }
 

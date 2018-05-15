@@ -4,7 +4,6 @@
 	justify-content: center;
 	border: 3px dotted #F2F3F4;
 	height:600px;
-/*	position: relative;*/
 	margin-top:15px;
 
 }
@@ -24,10 +23,6 @@
 	width:25%;
 	font-size: 25px;
 	float: right;
-
-	/*position: absolute;*/
-	/*top:35.6%;*/
-	/*right: 35.3%;*/
 }
 .RegisterTab {
 	display: inline-block;
@@ -35,18 +30,14 @@
 	width:25%;
 	font-size: 25px;
 	float: right;
-	/*position: absolute;*/
-	/*top:35.6%;*/
-	/*right: 27.3%;*/
 }
 
 
 
 .TabContain {
-	width: 45%;
+	width: calc(55% + 6px);
 	margin-left: auto;
 	margin-right: auto;
-
 }
 
 
@@ -56,14 +47,13 @@
 
 
 .LogRegContain {
-	/*position: relative;*/
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	border:3px solid #333;
 
 	height: 300px;
-	width: 45%;
+	width: 55%;
 	margin-left: auto;
 	margin-right: auto;
 	background-color:#7B7D7D;
@@ -76,9 +66,6 @@
 	padding-left: 10px;
 	height: 15%;
 	width: 60%;
-	/*position: absolute;*/
-	/*right:25%;*/
-	/*bottom: 30%;*/
 }
 
 .InpUser {
@@ -88,21 +75,14 @@
 	padding-left: 10px;
 	height: 15%;
 	width: 60%;
-	/*position: absolute;*/
-	/*bottom: 55%;*/
-	/*right:25%;*/
 }
 
 .LogBtn {
 	color: #333;
 	border:3px solid #333;
-	/*position: absolute;*/
 	border-radius: 10px;
 	font-size: 30px;
 	height:15%;
-	/*right: 5%;*/
-	/*top: 40%;*/
-
 }
 
 

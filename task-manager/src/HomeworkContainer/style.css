@@ -10,9 +10,17 @@
 }
 
 #addButton{
-	border-style: solid;
-	border-color: black;
-	border-width: 1.5px;
-	margin-top: 10px;
-	float: right;
+    border: 1.5px solid #333;
+    height: 30px;
+    margin-top: 10px;
+    font-size: 15px;
+    float: right;
+    border-radius: 10px;
 }
+
+.MainTab {
+	width: calc(65% + 86px);
+	margin-left: auto;
+	margin-right: auto;
+}
+
