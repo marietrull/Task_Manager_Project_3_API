@@ -42,11 +42,11 @@ class AssignmentController < ApplicationController
 
 		user = User.find_by :username => session[:username]
 
-		user.assignments.create name:@payload[:name], link:@payload[:link], notes:@payload[:notes], complete:false 
+		newAssignment = user.assignments.create name:@payload[:name], link:@payload[:link], notes:@payload[:notes], complete:false 
 
 		{
 			success: true,
-
+			added_assignment: newAssignment,
 			message: "Added assignment for #{user.username}."
 		}.to_json
 	end	

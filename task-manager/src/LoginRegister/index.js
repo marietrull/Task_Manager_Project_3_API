@@ -4,8 +4,6 @@ import './style.css';
 
 const LoginRegister = ({loginAndRegister, registering,changeRegistering}) => {
 
-	console.log(registering);
-
 	return(
 	
 		<div className="LogRegField" >

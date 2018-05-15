@@ -19,9 +19,6 @@ class App extends Component {
 		}
 	}
 
-
-
-
 	loginAndRegister= async(e)=>{
 
 		const buttonText = e.target.innerText;
@@ -34,15 +31,12 @@ class App extends Component {
 
 		const userInputVal = userInput.value;
 
-		console.log(pwInput, "pw");
-
-		console.log(userInput, "username");
-
 		if(buttonText === "Register"){
 
 			const registerJSON = await fetch("http://localhost:9292/user/register",
 			{
 				method: "POST",
+				credentials: 'include',
 				body:JSON.stringify({username: userInputVal, password: pwInputVal})
 			})
 
@@ -57,18 +51,20 @@ class App extends Component {
 			const loginJSON = await fetch("http://localhost:9292/user/login",
 			{
 				method: "POST",
+				credentials: 'include',
 				body:JSON.stringify({username: userInputVal, password: pwInputVal})
 			})
 
 			const loginResponse = await loginJSON.json();
 
 			loginResponse.success ? this.setState({logged:true, message:loginResponse.message}) : this.setState({message: loginResponse.message})
+
+			console.log(this.state)
 		}
 
 
 
 	}
-
 
 	changeRegistering=(e)=>{
 
