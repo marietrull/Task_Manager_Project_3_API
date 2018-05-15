@@ -40,13 +40,16 @@ class EditHomeworkModal extends Component {
 
 
 	render () {
+
+		console.log(this.state, 'state in EditHomeworkModal')
+
 		const cssClass = this.props.showEdit ? 'Modal-Open' : 'Modal-Closed'
 
 		return (
 			<div className={cssClass}>
-				<input type='name' placeholder='Assignment Name' onChange={this.updateName}/><br/>
-				<input id="link" type='text' placeholder='Github Link' onChange={this.updateLink}/><br/>
-				<input id="notes" type='text' placeholder='Notes' onChange={this.updateNotes}/><br/>
+				<input type='name' value={this.state.name} onChange={this.updateName}/><br/>
+				<input id="link" type='text' value={this.state.link} onChange={this.updateLink}/><br/>
+				<input id="notes" type='text' value={this.state.notes} onChange={this.updateNotes}/><br/>
 				<button onClick={this.props.removeAssignment}>DELETE</button>
 				<button onClick={this.handleSubmit}> Done </button>
 			</div>

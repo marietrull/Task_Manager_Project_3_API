@@ -85,6 +85,10 @@ class HomeworkContainer extends Component {
 		} else {
 				
 		}
+
+		this.setState({
+			showEdit: false
+		})
 		
 	}
 
@@ -149,6 +153,8 @@ class HomeworkContainer extends Component {
 
 
 	render () {
+
+		console.log(this.state, 'state in Render')
 		return (
 			<div>
 				HOMEWORK CONTAINER
