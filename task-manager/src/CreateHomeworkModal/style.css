@@ -1,19 +1,33 @@
-.Add-Modal-Closed {
-
-	display: none;
-
+#newHead {
+	font-size: 40px;
 }
 
-.Add-Modal-Open {
+#newText {
+	font-size: 25px;
+	background-color: white;
+	width: 50%;
+	min-width: 250px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	padding: 40px;
+}
 
-	display: block;
-	background-color: pink;
-	text-align: center;
-	position: fixed;
-	left: 50;
-	width: 35%;
-	height: 200px;
-	margin-left:35%;
-	margin-top: 85px;
+.newItem {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+}
 
+.newInput {
+	border-radius:10px;
+	border: 2.5px solid #333;
+}
+
+#newSubmit {
+	margin-top: 15px;
+	float: right;
+	border-style: solid;
+	border-color: black;
+	border-width: 1.5px;
 }

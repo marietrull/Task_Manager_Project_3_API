@@ -1,11 +1,3 @@
-.showHWModal {
-	height: 400px;
-	width: 400px;
-	background-color: rgb(200, 255, 200);
-	margin-left: auto;
-	margin-right: auto;
-}
-
 .modal {
     display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -28,8 +20,8 @@
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    border: 5px solid black;
+    width: 55%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
@@ -46,3 +38,44 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+.showHWText {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+#nameText {
+    font-size: 40px;
+}
+
+#linkText {
+    font-size: 30px;
+}
+
+#notesText {
+    font-size: 20px;
+}
+
+#notesHeader {
+    font-size: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -74,6 +74,12 @@ class HomeworkContainer extends Component {
 		console.log(this.state.showAdd, 'showAdd after addAssignment')
 	}
 
+	closeAddModal = () => {
+		this.setState({
+			showAdd: false
+		});
+	}
+
 	removeAssignment = async () => {
 		//Capture the id of the assignment for deletion
 		const id = this.state.editedAssignment.id
@@ -170,7 +176,7 @@ class HomeworkContainer extends Component {
 	}
 
 
-	closeModal = () => {
+	closeHWModal = () => {
 		this.setState({hwModalOpen: false});
 	}
 
@@ -184,9 +190,9 @@ class HomeworkContainer extends Component {
 				<Homework assignments={this.state.assignments} openEdit={this.openEdit}showHWModal={this.showHWModal}/>
 				<button id='addButton' onClick={this.openAdd}> Add New Assignment </button>
 
-				<CreateHomeworkModal addAssignment={this.addAssignment} openEdit={this.openEdit} showAdd={this.state.showAdd}/>
+				<CreateHomeworkModal addAssignment={this.addAssignment} openEdit={this.openEdit} showAdd={this.state.showAdd} closeAddModal={this.closeAddModal}/>
 
-				<ShowHWModal hwShowing={this.state.hwShowing} hwModalOpen={this.state.hwModalOpen} closeModal={this.closeModal}/>
+				<ShowHWModal hwShowing={this.state.hwShowing} hwModalOpen={this.state.hwModalOpen} closeHWModal={this.closeHWModal}/>
 
 				<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment} removeAssignment={this.removeAssignment} editedAssignment={this.state.editedAssignment}/>
 			</div>
