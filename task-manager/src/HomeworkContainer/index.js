@@ -153,7 +153,7 @@ class HomeworkContainer extends Component {
 	showHWModal = async (e)=>{
 		console.log(e.target.id);
 
-		const hwId = e.target.id;
+		const hwId = e.target.parentNode.id;
 
 		const hwJSON = await fetch(`http://localhost:9292/assignment/${hwId}`, {
 			credentials:'include'

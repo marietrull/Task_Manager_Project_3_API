@@ -25,13 +25,9 @@ class App extends Component {
 
 		const buttonText = e.target.innerText;
 
-		const pwInput = e.target.parentNode.parentNode.childNodes[1].childNodes[0].value
+		const pwInputVal = e.target.parentNode.parentNode.childNodes[1].childNodes[0].value
 
-		const userInput = e.target.parentNode.parentNode.childNodes[0].childNodes[0].value
-
-		const pwInputVal = pwInput.value;
-
-		const userInputVal = userInput.value;
+		const userInputVal = e.target.parentNode.parentNode.childNodes[0].childNodes[0].value
 
 		if(buttonText === "Register"){
 
