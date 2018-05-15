@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 
 
-const hwModal = ({hwShowing, hwModalOpen, closeModal})=>{
+const hwModal = ({hwShowing, hwModalOpen, closeHWModal})=>{
 
 	return(
 
@@ -11,13 +11,20 @@ const hwModal = ({hwShowing, hwModalOpen, closeModal})=>{
 
   		
   			<div className="modal-content">
-   		 		<span onClick={closeModal} className="close">&times;</span>
+   		 		<span onClick={closeHWModal} className="close">&times;</span>
+
+   		 		<div className='showHWText'>
     			
-				<p>{hwShowing.name}</p>
+					<p id='nameText'>{hwShowing.name}</p>
 
-				<p>{hwShowing.link}</p>
+					<a id='linkText' target="_blank" href={hwShowing.link}> GitHub Link </a>
 
-				<p>{hwShowing.notes}</p>
+					<p id='notesHeader'> Notes </p>
+
+					<p id='notesText'>{hwShowing.notes}</p>
+
+				</div>
+
   			</div>
 
 		</div>
