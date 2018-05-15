@@ -69,9 +69,9 @@ class HomeworkContainer extends Component {
 		console.log(this.state.showAdd, 'showAdd after addAssignment')
 	}
 
-	removeAssignment = async (e) => {
+	removeAssignment = async () => {
 		//Capture the id of the assignment for deletion
-		const id = e.currentTarget.parentNode.id
+		const id = this.state.editedAssignment.id
 		console.log(id, 'remove Assignment id')
 
 		const removeItem = await fetch('http://localhost:9292/assignment/' + id, {
@@ -152,10 +152,10 @@ class HomeworkContainer extends Component {
 		return (
 			<div>
 				HOMEWORK CONTAINER
-				<Homework assignments={this.state.assignments} removeAssignment={this.removeAssignment} openEdit={this.openEdit}/>
+				<Homework assignments={this.state.assignments} openEdit={this.openEdit}/>
 				<button onClick={this.openAdd}> Add New Assignment </button>
 				<CreateHomeworkModal addAssignment={this.addAssignment} openEdit={this.openEdit} showAdd={this.state.showAdd}/>
-				<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment}/>
+				<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment} removeAssignment={this.removeAssignment}/>
 			</div>
 			)
 

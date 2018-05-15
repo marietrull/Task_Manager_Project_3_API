@@ -47,6 +47,7 @@ class EditHomeworkModal extends Component {
 				<input type='name' placeholder='Assignment Name' onChange={this.updateName}/><br/>
 				<input id="link" type='text' placeholder='Github Link' onChange={this.updateLink}/><br/>
 				<input id="notes" type='text' placeholder='Notes' onChange={this.updateNotes}/><br/>
+				<button onClick={this.props.removeAssignment}>DELETE</button>
 				<button onClick={this.handleSubmit}> Done </button>
 			</div>
 
