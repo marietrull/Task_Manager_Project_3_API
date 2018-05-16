@@ -56,12 +56,28 @@
 
 #notesText {
     font-size: 20px;
+    width: 95%;
+    height: 50px;
+    border-radius:10px;
+    border: 2px solid #333;
+    padding: 5px;
 }
 
 #notesHeader {
     font-size: 30px;
+    margin-bottom: -15px;
 }
 
+#checkComplete {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+}
+
+#checkLabel {
+  font-size: 20px;
+  padding: 5px;
+}
 
 
 input[type=checkbox] + label {

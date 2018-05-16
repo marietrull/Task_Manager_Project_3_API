@@ -28,14 +28,16 @@ const ShowHWModal = ({hwShowing, hwModalOpen, closeHWModal, check, checked})=>{
 
 					<p id='notesText'>{hwShowing.notes}</p>
 
-					<p id='notesText'>{hwShowing.assignment_complete}</p>
+					<p>{hwShowing.assignment_complete}</p>
 
+					<div id='checkComplete'>
+						<p id='checkLabel'>Complete</p>
+						<form>
+							<input onClick={check} checked={hwShowing.complete} type="checkbox" id="Complete" name="Complete" value="Complete"/>
+							<label htmlFor="Complete"></label>
+						</form>	
 
-					
-					<form>
-						<input onClick={check} checked={hwShowing.complete} type="checkbox" id="Complete" name="Complete" value="Complete"/>
-						<label htmlFor="Complete">Complete</label>
-					</form>	
+					</div>
 		
 
 				</div>
