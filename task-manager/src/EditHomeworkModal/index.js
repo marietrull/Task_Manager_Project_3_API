@@ -17,8 +17,6 @@ class EditHomeworkModal extends Component {
 
 	componentWillReceiveProps(nextProps){
 
-		console.log(nextProps.editedAssignment, 'this is editedAssignment in compenent will Receive Props')
-
 		if (nextProps.editedAssignment === ''){
 			console.log(nextProps.editedAssignment, typeof nextProps.editedAssignment)
 		} else {
@@ -47,8 +45,6 @@ class EditHomeworkModal extends Component {
 
 	handleSubmit = (editItem) => {
 
-		console.log('handle submit clicked')
-
 		this.props.editAssignment(this.state.name, this.state.link, this.state.notes)
 		
 	}
@@ -57,7 +53,7 @@ class EditHomeworkModal extends Component {
 	render () {
 
 		const cssClass = this.props.showEdit ? 'modal' : 'modalNone'
-		console.log('is this being called on create for some reason', this.state)
+
 		return (
 			<div className={cssClass}>
 				<div className="modal-content">
