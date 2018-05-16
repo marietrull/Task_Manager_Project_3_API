@@ -17,12 +17,11 @@ class HomeworkContainer extends Component {
 			showEdit: false,
 			editedAssignment: '',
 			hwModalOpen: false,
-<<<<<<< HEAD
-			hwShowing:[],
-			outcomes: false
-=======
 			hwShowing:{},
->>>>>>> 1f7bbf7b3733904e15507fa40ee668f897294881
+			outcomes: false
+
+			
+
 		}
 	}
 
@@ -93,9 +92,7 @@ class HomeworkContainer extends Component {
 		const response = await removeItem.json();
 		if (response.success){
 			this.setState({assignments: this.state.assignments.filter((removeItem) => removeItem.id != id)});
-		} else {
-				
-		}
+		} 
 
 		this.setState({
 			showEdit: false
@@ -182,6 +179,7 @@ class HomeworkContainer extends Component {
 		});
 	}
 
+
 	changeTab=(e)=>{
 
 		console.log('Tab Clicked')
@@ -189,6 +187,7 @@ class HomeworkContainer extends Component {
 		const tabText = e.target.innerText;
 
 		tabText === "Outcomes" ? this.setState({outcomes: true}) : this.setState({outcomes: false});
+	}
 
 	check= async (e)=>{
 		const checkJSON = await fetch(`http://localhost:9292/assignment/${this.state.hwShowing.id}/check`, {
@@ -230,7 +229,7 @@ class HomeworkContainer extends Component {
 						<button id='addButton'  onClick={this.openAdd}> Add New Assignment </button>
 						<CreateHomeworkModal addAssignment={this.addAssignment} openEdit={this.openEdit} showAdd={this.state.showAdd} closeAddModal={this.closeAddModal}/>
 
-						<ShowHWModal hwShowing={this.state.hwShowing} hwModalOpen={this.state.hwModalOpen} closeHWModal={this.closeHWModal} check={this.check}/>
+						<ShowHWModal hwShowing={this.state.hwShowing} hwModalOpen={this.state.hwModalOpen} closeHWModal={this.closeHWModal} check={this.check} />
 
 						<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment} removeAssignment={this.removeAssignment} editedAssignment={this.state.editedAssignment} closeEditModal={this.closeEditModal}/>
 
@@ -239,9 +238,9 @@ class HomeworkContainer extends Component {
 				:
 
 					<OutcomesContainer/>
-
 				}
 
+				
 			</div>
 		)
 
