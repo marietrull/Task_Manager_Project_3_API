@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Outcome from '../Outcome';
 
 
 class OutcomesContainer extends Component {
@@ -6,7 +7,7 @@ class OutcomesContainer extends Component {
 		super();
 
 		this.state = {
-			assignments: [],
+			outcomes: ['Outcomes 1', 'Outcomes 2', 'Outcomes 3'],
 			showAdd: false,
 			showEdit: false,
 			editedAssignment: '',
@@ -21,7 +22,7 @@ class OutcomesContainer extends Component {
 		return (
 
 				<div id='homeworkContainer'>
-					 <h1> OUTCOMES CONTAINER </h1>
+					 <Outcome outcomes={this.state.outcomes}/>
 
 				</div>
 			)
