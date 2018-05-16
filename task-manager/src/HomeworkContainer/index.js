@@ -180,7 +180,7 @@ class HomeworkContainer extends Component {
 	}
 
 
-	changeTab=(e)=>{
+	changeTab = (e) =>{
 
 		console.log('Tab Clicked')
 
@@ -189,7 +189,8 @@ class HomeworkContainer extends Component {
 		tabText === "Outcomes" ? this.setState({outcomes: true}) : this.setState({outcomes: false});
 	}
 
-	check= async (e)=>{
+	check = async (e) =>{
+		
 		const checkJSON = await fetch(`http://localhost:9292/assignment/${this.state.hwShowing.id}/check`, {
 			method: 'PUT',
 			credentials: 'include'

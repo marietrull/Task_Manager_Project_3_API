@@ -29,7 +29,7 @@ const ShowHWModal = ({hwShowing, hwModalOpen, closeHWModal, check, checked})=>{
 					
 					<form>
 						<input onClick={check} checked={hwShowing.complete} type="checkbox" id="Complete" name="Complete" value="Complete"/>
-						<label for="Complete">Complete</label>
+						<label htmlFor="Complete">Complete</label>
 					</form>	
 		
 
