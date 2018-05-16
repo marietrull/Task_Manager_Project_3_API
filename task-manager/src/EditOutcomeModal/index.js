@@ -18,7 +18,7 @@ class EditOutcomeModal extends Component {
 		return (
 			<div className={cssClass}>
 				<div className="modal-content">
-					<span className="close">&times;</span>
+					<span className="close" onClick={this.props.closeEditModal}>&times;</span>
 					<div id='newHead'> EDIT ASSIGNMENT </div>				
 					<div id='editContent'>
 						<div className='editItem'>

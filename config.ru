@@ -9,6 +9,8 @@ require './models/AssignmentModel'
 
 require './models/UserModel'
 
+require './models/OutcomeModel'
+
 # Controllers
 
 require './controllers/ApplicationController'
@@ -16,6 +18,8 @@ require './controllers/ApplicationController'
 require './controllers/AssignmentController'
 
 require './controllers/UserController'
+
+require './controllers/OutcomeController'
 
 
 
@@ -33,6 +37,10 @@ map('/user'){
 
 map('/assignment'){
 	run AssignmentController
+}
+
+map('/outcome'){
+	run OutcomeController
 }
 
 
