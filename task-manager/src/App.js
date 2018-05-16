@@ -14,12 +14,13 @@ class App extends Component {
 
 			registering: false,
 
-			message:""
+			message:"",
+
+			username:""
 		}
 	}
 
 	hitEnter = (e) => {
-
 		if (e.charCode === 13){
 			console.log('Enter Hit')
 			this.loginAndRegister(e);
@@ -32,6 +33,8 @@ class App extends Component {
 	loginAndRegister= async(e)=>{
 
 		console.log(e.target.parentNode.parentNode.childNodes[1].childNodes[0].value)
+		console.log(e.target.parentNode.parentNode.childNodes[0].childNodes[0].value)
+		console.log(e.target.innerText);
 
 		const buttonText = e.target.innerText;
 
@@ -50,7 +53,7 @@ class App extends Component {
 
 			const registerResponse = await registerJSON.json();
 
-			registerResponse.success  ? this.setState({logged:true, message:registerResponse.message}) : this.setState({message: registerResponse.message})
+			registerResponse.success  ? this.setState({logged:true, username:registerResponse.username}) : this.setState({message: registerResponse.message})
 		}
 
 
@@ -65,7 +68,7 @@ class App extends Component {
 
 			const loginResponse = await loginJSON.json();
 
-			loginResponse.success ? this.setState({logged:true, message:loginResponse.message}) : this.setState({message: loginResponse.message})
+			loginResponse.success ? this.setState({logged:true, username:loginResponse.username}) : this.setState({message: loginResponse.message})
 
 			console.log(this.state)
 		}
@@ -83,6 +86,9 @@ class App extends Component {
 	}
 
 
+
+
+
   	render() {
     	return (
     	  <div className="App">
@@ -91,11 +97,14 @@ class App extends Component {
 
     	  		<div className="Logo"><div className="LogoTitle">TM</div></div>
 
-    	  		<div className="Heading">GENERAL ASSEMBLY TASK MANAGER</div>
 
+    	  		<div className="HeadingContain">
+    	  			<div className="Heading">GENERAL ASSEMBLY TASK MANAGER  </div>
+					{this.state.logged ? <div className="Welcome">Welcome {this.state.username}</div> : null}
+				</div>	
     	  	</div>
 
-    	    {this.state.message !== "" ? <p>{this.state.message}</p> : null }
+    	     
 
     	  	{this.state.logged ? <HomeworkContainer /> : <LoginRegister loginAndRegister={this.loginAndRegister} registering={this.state.registering} changeRegistering={this.changeRegistering} hitEnter={this.hitEnter}/>}  
 

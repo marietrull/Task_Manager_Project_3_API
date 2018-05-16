@@ -55,7 +55,9 @@ class CreateHomeworkModal extends Component {
 					<div id='newHead'> NEW ASSIGNMENT </div>
 					
 					<div id='newText'>	
+
 						<div className='newItem'>	
+
 							<label htmlFor="name">Name</label>
 							<br/>
 							<input className='newInput' type='text' value={this.state.name} placeholder='Assignment Name' onChange={this.updateName}/>

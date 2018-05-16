@@ -17,19 +17,23 @@ class HomeworkContainer extends Component {
 			showEdit: false,
 			editedAssignment: '',
 			hwModalOpen: false,
+<<<<<<< HEAD
 			hwShowing:[],
 			outcomes: false
+=======
+			hwShowing:{},
+>>>>>>> 1f7bbf7b3733904e15507fa40ee668f897294881
 		}
 	}
 
 	componentDidMount(){
-    this.getItems()
-    .then((response) => {
-      this.setState({assignments: response.user_assignments})
-    })
-    .catch ((err) => {
-      console.log(err)
-    })
+	    this.getItems()
+	    .then((response) => {
+	      this.setState({assignments: response.user_assignments})
+	    })
+	    .catch ((err) => {
+	      console.log(err)
+	    })
 
 	}
 
@@ -186,6 +190,23 @@ class HomeworkContainer extends Component {
 
 		tabText === "Outcomes" ? this.setState({outcomes: true}) : this.setState({outcomes: false});
 
+	check= async (e)=>{
+		const checkJSON = await fetch(`http://localhost:9292/assignment/${this.state.hwShowing.id}/check`, {
+			method: 'PUT',
+			credentials: 'include'
+		});
+
+		const checkResp = await checkJSON.json();
+		
+
+		if(this.state.hwShowing.complete){
+			this.setState({hwShowing:{...this.state.hwShowing, complete: false }});
+		}
+		else
+		{
+			this.setState({hwShowing:{...this.state.hwShowing, complete: true }});
+		}	
+
 	}
 
 
@@ -209,7 +230,7 @@ class HomeworkContainer extends Component {
 						<button id='addButton'  onClick={this.openAdd}> Add New Assignment </button>
 						<CreateHomeworkModal addAssignment={this.addAssignment} openEdit={this.openEdit} showAdd={this.state.showAdd} closeAddModal={this.closeAddModal}/>
 
-						<ShowHWModal hwShowing={this.state.hwShowing} hwModalOpen={this.state.hwModalOpen} closeHWModal={this.closeHWModal}/>
+						<ShowHWModal hwShowing={this.state.hwShowing} hwModalOpen={this.state.hwModalOpen} closeHWModal={this.closeHWModal} check={this.check}/>
 
 						<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment} removeAssignment={this.removeAssignment} editedAssignment={this.state.editedAssignment} closeEditModal={this.closeEditModal}/>
 
@@ -219,15 +240,7 @@ class HomeworkContainer extends Component {
 
 					<OutcomesContainer/>
 
-
-
-
-
-
 				}
-
-
-
 
 			</div>
 		)
