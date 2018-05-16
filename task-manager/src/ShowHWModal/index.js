@@ -3,6 +3,11 @@ import './style.css';
 
 
 const ShowHWModal = ({hwShowing, hwModalOpen, closeHWModal, check, checked})=>{
+
+	if (hwShowing.complete == undefined){
+		hwShowing.complete = false;
+	}
+
 	console.log(hwShowing.complete, "Show Hw ");
 	return(
 

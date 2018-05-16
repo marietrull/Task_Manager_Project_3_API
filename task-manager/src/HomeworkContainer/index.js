@@ -211,7 +211,7 @@ class HomeworkContainer extends Component {
 
 
 	render () {
-
+		console.log(this.state.hwShowing);
 		return (
 			<div className="LogRegField">
 
