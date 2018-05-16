@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Outcome = ({outcomes}) => {
+const Outcome = ({outcomes, openEdit}) => {
 
 	const outcomesList = outcomes.map((outcome,i) => {
 
 		return <li className='assignmentList' id={outcome.id} key={i}>{outcome}
-					<button className='editButton'>EDIT</button>
+					<button className='editButton' onClick={openEdit}>EDIT</button>
 
 				</li>	
 	})
