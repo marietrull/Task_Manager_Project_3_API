@@ -25,7 +25,7 @@ class AssignmentController < ApplicationController
 		user = User.find_by :username => session[:username]
 
 		user_assignments = user.assignments.order(:id)
-
+		
 		{   success: true, 
 			message: "Found #{user_assignments.length} assignment(s) for #{user.username}.",
 			user_assignments:user_assignments
