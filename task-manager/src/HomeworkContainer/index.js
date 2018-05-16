@@ -190,7 +190,7 @@ class HomeworkContainer extends Component {
 	}
 
 	check = async (e) =>{
-		
+
 		const checkJSON = await fetch(`http://localhost:9292/assignment/${this.state.hwShowing.id}/check`, {
 			method: 'PUT',
 			credentials: 'include'

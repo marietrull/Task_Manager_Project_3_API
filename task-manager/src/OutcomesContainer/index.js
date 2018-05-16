@@ -27,6 +27,7 @@ class OutcomesContainer extends Component {
   	}
 
   	closeAddModal = () => {
+  		
 		this.setState({
 			showAdd: false
 		});
@@ -34,19 +35,16 @@ class OutcomesContainer extends Component {
 
 	openEdit = (e) => {
 
-		console.log('Open Edit Clicked')
-
-		const id = parseInt(e.currentTarget.parentNode.id);
-
-	    const editedAssignment = this.state.outcomes.find((outcome) => {
-	      return outcome.id === id 
-	    })
-
 	    this.setState({
 	      showEdit: true,
-	      editedAssignment: editedAssignment
 	    })
 		
+	}
+
+	closeEditModal = () => {
+		this.setState({
+			showEdit: false
+		});
 	}
 
 
@@ -58,7 +56,7 @@ class OutcomesContainer extends Component {
 					 <Outcome outcomes={this.state.outcomes} openEdit={this.openEdit}/>
 					 <button id='addButton'  onClick={this.openAdd}> New Assignment </button>
 					 <CreateOutcomeModal showAdd={this.state.showAdd} closeAddModal={this.closeAddModal}/>
-					 <EditOutcomeModal showEdit={this.state.showEdit}/>
+					 <EditOutcomeModal showEdit={this.state.showEdit} closeEditModal={this.closeEditModal}/>
 				</div>
 			)
 
