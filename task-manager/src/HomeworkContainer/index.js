@@ -206,7 +206,7 @@ class HomeworkContainer extends Component {
 
 					<div id='homeworkContainer'>
 						<Homework assignments={this.state.assignments} openEdit={this.openEdit}showHWModal={this.showHWModal}/>
-						<button id='addButton'  onClick={this.openAdd}> Add New Assignment </button>
+						<button id='addButton'  onClick={this.openAdd}> New Assignment </button>
 						<CreateHomeworkModal addAssignment={this.addAssignment} openEdit={this.openEdit} showAdd={this.state.showAdd} closeAddModal={this.closeAddModal}/>
 
 						<ShowHWModal hwShowing={this.state.hwShowing} hwModalOpen={this.state.hwModalOpen} closeHWModal={this.closeHWModal}/>
