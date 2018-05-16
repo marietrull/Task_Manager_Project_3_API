@@ -34,7 +34,7 @@ class CreateHomeworkModal extends Component {
 		this.props.addAssignment(this.state.name, this.state.link, this.state.notes);
 		this.setState({
 			name: '',
-			link: '',
+			link: 'http://',
 			notes: ''
 		})
 
@@ -54,17 +54,21 @@ class CreateHomeworkModal extends Component {
 					<div id='newHead'> NEW ASSIGNMENT </div>
 					
 					<div id='newText'>	
-						<div className='newItem'>	
-							<label htmlFor="name">Name: </label>
-							<input className='newInput' type='text' value={this.state.name} placeholder='Assignment Name' onChange={this.updateName}/>
+
+						<div class='newItem'>	
+							<label htmlFor="name">Name</label>
+							<br/>
+							<input class='newInput' type='text' value={this.state.name} placeholder='Assignment Name' onChange={this.updateName}/>
 						</div>
 						<div class='newItem'>
-							<label htmlFor='link'>Link: </label>				
-							<input className='newInput'type='text' value={this.state.link} placeholder='Github Link' onChange={this.updateLink}/>
+							<label htmlFor='link'>Link</label>	
+							<br/>			
+							<input class='newInput'type='text' value={this.state.link} placeholder='Github Link' onChange={this.updateLink}/>
 						</div>
-						<div className='newItem'>
-							<label htmlFor='notes'>Notes: </label>	
-							<textArea className='newInput' type='text' value={this.state.notes} placeholder='Notes' onChange={this.updateNotes}></textArea>
+						<div class='newItem'>
+							<label htmlFor='notes'>Notes</label>
+							<br/>
+							<textArea class='notesInput' type='text' value={this.state.notes} placeholder='Notes' onChange={this.updateNotes}></textArea>
 						</div>
 						<input id='newSubmit' type='submit'/>
 					</div>

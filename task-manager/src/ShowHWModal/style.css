@@ -88,6 +88,7 @@ input[type=checkbox] + label:before {
   vertical-align: bottom;
   color: transparent;
   transition: .2s;
+  float: right;
 }
 
 input[type=checkbox] + label:active:before {
@@ -110,20 +111,4 @@ input[type=checkbox]:checked:disabled + label:before {
   background-color: #bfb;
   border-color: #bfb;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

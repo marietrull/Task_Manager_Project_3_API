@@ -5,7 +5,7 @@
 #newText {
 	font-size: 25px;
 	background-color: white;
-	width: 50%;
+	width: 70%;
 	min-width: 250px;
 	margin-left: auto;
 	margin-right: auto;
@@ -14,30 +14,27 @@
 }
 
 .newItem {
-	display: flex;
-	justify-content: space-between;
-	padding: 20px;
+
+	padding: 10px;
+
 }
 
 .newInput {
+	width: 95%;
+	height: 20px;
 	border-radius:10px;
 	border: 2.5px solid #333;
-	padding-left: 15px;
-	padding-top: 5px;
-	font-size: 15px;
 }
+
+
+
+
 
 #newSubmit {
-	margin-top: 15px;
-	float: right;
-	border-style: solid;
-	border-color: #333;
-	border-width: 1.5px;
-	height:35px;
-	font-size: 20px;
-	border-radius: 10px;
-	color: #333;
+	margin: 5px;
+	border: 1.5px solid #333;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 10px;
 }
-
-
 

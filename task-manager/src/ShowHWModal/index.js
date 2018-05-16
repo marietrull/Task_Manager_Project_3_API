@@ -23,10 +23,13 @@ const hwModal = ({hwShowing, hwModalOpen, closeHWModal})=>{
 
 					<p id='notesText'>{hwShowing.notes}</p>
 
+
+					
 					<form>
-  						<input type="checkbox" id="fruit1" name="fruit-1" value="Apple"/>
-  						<label for="fruit1">Apple</label>
-  					</form>	
+						<input type="checkbox" id="Complete" name="Complete" value="Complete"/>
+						<label for="Complete">Complete</label>
+					</form>	
+		
 
 				</div>
 
