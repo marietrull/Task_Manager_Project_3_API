@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 
 
-const LoginRegister = ({loginAndRegister, registering, changeRegistering}) => {
+const LoginRegister = ({loginAndRegister, registering, changeRegistering, hitEnter}) => {
 
 	return(
 	
@@ -23,9 +23,9 @@ const LoginRegister = ({loginAndRegister, registering, changeRegistering}) => {
 			<div className="LogRegContain" >
 				<div><input className="InpUser" type="text" placeholder={registering ? "Create Username" : "Username"} /></div>
 
-				<div><input className="InpPass" type="password" placeholder={registering ? "Create Password" : "Password"}/></div>
+				<div><input className="InpPass" type="password" onKeyPress={hitEnter} placeholder={registering ? "Create Password" : "Password"}/></div>
 
-				<div className="LogBtnDiv" ><button className="LogBtn" onClick={loginAndRegister}> {registering ? "Register" : "Login"} </button></div>
+				<div className="LogBtnDiv" ><button className="LogBtn" onKeyPress={hitEnter} onClick={loginAndRegister}> {registering ? "Register" : "Login"} </button></div>
 			</div>
 
 

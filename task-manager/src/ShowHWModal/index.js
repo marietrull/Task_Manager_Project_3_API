@@ -2,8 +2,8 @@ import React from 'react';
 import './style.css';
 
 
-const hwModal = ({hwShowing, hwModalOpen, closeHWModal})=>{
-
+const ShowHWModal = ({hwShowing, hwModalOpen, closeHWModal, check, checked})=>{
+	console.log(hwShowing.complete, "Show Hw ");
 	return(
 
 
@@ -23,10 +23,12 @@ const hwModal = ({hwShowing, hwModalOpen, closeHWModal})=>{
 
 					<p id='notesText'>{hwShowing.notes}</p>
 
+					<p id='notesText'>{hwShowing.assignment_complete}</p>
+
 
 					
 					<form>
-						<input type="checkbox" id="Complete" name="Complete" value="Complete"/>
+						<input onClick={check} checked={hwShowing.complete} type="checkbox" id="Complete" name="Complete" value="Complete"/>
 						<label for="Complete">Complete</label>
 					</form>	
 		
@@ -42,4 +44,4 @@ const hwModal = ({hwShowing, hwModalOpen, closeHWModal})=>{
 }
 
 
-export default hwModal;
+export default ShowHWModal;

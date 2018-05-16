@@ -118,7 +118,7 @@ class AssignmentController < ApplicationController
 
 	# Edit route for "Complete" status of assignment
 
-	patch '/:id' do 
+	put '/:id/check' do 
 
 		assignment = Assignment.find params[:id]
 
