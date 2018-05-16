@@ -44,7 +44,7 @@ class CreateHomeworkModal extends Component {
 	render () {
 
 		const addClass = this.props.showAdd ? 'modal' : 'modalNone'
-		console.log(this.state, ' this is this.state', 'in homwqoek mosal')
+
 		return (
 
 			<form className={addClass} onSubmit={this.handleSubmit}>

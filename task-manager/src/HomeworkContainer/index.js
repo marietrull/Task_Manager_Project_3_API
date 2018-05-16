@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Homework from '../Homework';
 import CreateHomeworkModal from '../CreateHomeworkModal';
 import EditHomeworkModal from '../EditHomeworkModal';
-import ShowHWModal from '../ShowHWModal'
+import ShowHWModal from '../ShowHWModal';
+import OutcomesContainer from '../OutcomesContainer';
 import './style.css'
 
 
@@ -17,6 +18,10 @@ class HomeworkContainer extends Component {
 			editedAssignment: '',
 			hwModalOpen: false,
 			hwShowing:{},
+			outcomes: false
+
+			
+
 		}
 	}
 
@@ -44,10 +49,6 @@ class HomeworkContainer extends Component {
   		this.setState({
 			showAdd: true
 		})
-
-  		console.log(this.state, 'state openAdd')
-
-  		console.log('New Assignment clicked')
   		
   	}
 
@@ -71,7 +72,6 @@ class HomeworkContainer extends Component {
 			showAdd: false
 		})
 
-		console.log(this.state.showAdd, 'showAdd after addAssignment')
 	}
 
 	closeAddModal = () => {
@@ -83,7 +83,6 @@ class HomeworkContainer extends Component {
 	removeAssignment = async () => {
 		//Capture the id of the assignment for deletion
 		const id = this.state.editedAssignment.id
-		console.log(id, 'remove Assignment id')
 
 		const removeItem = await fetch('http://localhost:9292/assignment/' + id, {
 			method: 'DELETE',
@@ -93,9 +92,7 @@ class HomeworkContainer extends Component {
 		const response = await removeItem.json();
 		if (response.success){
 			this.setState({assignments: this.state.assignments.filter((removeItem) => removeItem.id != id)});
-		} else {
-				
-		}
+		} 
 
 		this.setState({
 			showEdit: false
@@ -104,18 +101,12 @@ class HomeworkContainer extends Component {
 	}
 
 	openEdit = (e) => {
-		// //Make sure button works
-		console.log('Edit Clicked')
 
-		// // set id equal to current target id
 		const id = parseInt(e.currentTarget.parentNode.id);
-		console.log(id, ' id of item for edit')
 
 	    const editedAssignment = this.state.assignments.find((assignment) => {
 	      return assignment.id === id 
 	    })
-
-	    console.log(editedAssignment, 'This is the editedItem')
 
 	    this.setState({
 	      showEdit: true,
@@ -141,8 +132,6 @@ class HomeworkContainer extends Component {
 			credentials: 'include'
 		})
 
-		console.log(this.state, 'state after Edit')
-
 		const response = await assignment.json();
 
 		const editedAssignmentIndex = this.state.assignments.findIndex((assignment) => {
@@ -165,7 +154,6 @@ class HomeworkContainer extends Component {
 	}
 
 	showHWModal = async (e)=>{
-		console.log(e.target.id);
 
 		const hwId = e.target.parentNode.id;
 
@@ -191,7 +179,18 @@ class HomeworkContainer extends Component {
 		});
 	}
 
-	check= async (e)=>{
+
+	changeTab = (e) =>{
+
+		console.log('Tab Clicked')
+
+		const tabText = e.target.innerText;
+
+		tabText === "Outcomes" ? this.setState({outcomes: true}) : this.setState({outcomes: false});
+	}
+
+	check = async (e) =>{
+		
 		const checkJSON = await fetch(`http://localhost:9292/assignment/${this.state.hwShowing.id}/check`, {
 			method: 'PUT',
 			credentials: 'include'
@@ -212,31 +211,37 @@ class HomeworkContainer extends Component {
 
 
 	render () {
-		
+
 		return (
 			<div className="LogRegField">
 
 
 				<div className="MainTab">
-					<div className="LoginTab Tab" >Outcomes</div> 
+					<div className="LoginTab Tab" onClick={this.changeTab} >Outcomes</div> 
 
-					<div className="RegisterTab Tab" >Homework</div>
+					<div className="RegisterTab Tab" onClick={this.changeTab}>Homework</div>
 				</div>	
 
 
+				{this.state.outcomes == false ? 
 
-				<div id='homeworkContainer'>
-					<Homework assignments={this.state.assignments} openEdit={this.openEdit}showHWModal={this.showHWModal}/>
-					<button id='addButton'  onClick={this.openAdd}> Add New Assignment </button>
-					<CreateHomeworkModal addAssignment={this.addAssignment} openEdit={this.openEdit} showAdd={this.state.showAdd} closeAddModal={this.closeAddModal}/>
+					<div id='homeworkContainer'>
+						<Homework assignments={this.state.assignments} openEdit={this.openEdit}showHWModal={this.showHWModal}/>
+						<button id='addButton'  onClick={this.openAdd}> New Assignment </button>
+						<CreateHomeworkModal addAssignment={this.addAssignment} openEdit={this.openEdit} showAdd={this.state.showAdd} closeAddModal={this.closeAddModal}/>
 
-					<ShowHWModal hwShowing={this.state.hwShowing} hwModalOpen={this.state.hwModalOpen} closeHWModal={this.closeHWModal} check={this.check} />
+						<ShowHWModal hwShowing={this.state.hwShowing} hwModalOpen={this.state.hwModalOpen} closeHWModal={this.closeHWModal} check={this.check} />
 
-					<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment} removeAssignment={this.removeAssignment} editedAssignment={this.state.editedAssignment} closeEditModal={this.closeEditModal}/>
+						<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment} removeAssignment={this.removeAssignment} editedAssignment={this.state.editedAssignment} closeEditModal={this.closeEditModal}/>
 
-				</div>
+					</div>
 
+				:
 
+					<OutcomesContainer/>
+				}
+
+				
 			</div>
 		)
 
