@@ -34,8 +34,9 @@ class CreateHomeworkModal extends Component {
 		this.props.addAssignment(this.state.name, this.state.link, this.state.notes);
 		this.setState({
 			name: '',
+			notes: '',
 			link: 'http://',
-			notes: ''
+	
 		})
 
 	}
@@ -43,7 +44,7 @@ class CreateHomeworkModal extends Component {
 	render () {
 
 		const addClass = this.props.showAdd ? 'modal' : 'modalNone'
-
+		console.log(this.state, ' this is this.state', 'in homwqoek mosal')
 		return (
 
 			<form className={addClass} onSubmit={this.handleSubmit}>
@@ -54,20 +55,20 @@ class CreateHomeworkModal extends Component {
 					<div id='newHead'> NEW ASSIGNMENT </div>
 					
 					<div id='newText'>	
-						<div class='newItem'>	
+						<div className='newItem'>	
 							<label htmlFor="name">Name</label>
 							<br/>
-							<input class='newInput' type='text' value={this.state.name} placeholder='Assignment Name' onChange={this.updateName}/>
+							<input className='newInput' type='text' value={this.state.name} placeholder='Assignment Name' onChange={this.updateName}/>
 						</div>
-						<div class='newItem'>
+						<div className='newItem'>
 							<label htmlFor='link'>Link</label>	
 							<br/>			
-							<input class='newInput'type='text' value={this.state.link} placeholder='Github Link' onChange={this.updateLink}/>
+							<input className='newInput'type='text' value={this.state.link} placeholder='Github Link' onChange={this.updateLink}/>
 						</div>
-						<div class='newItem'>
+						<div className='newItem'>
 							<label htmlFor='notes'>Notes</label>
 							<br/>
-							<textArea class='notesInput' type='text' value={this.state.notes} placeholder='Notes' onChange={this.updateNotes}></textArea>
+							<textarea className='notesInput' type='text' value={this.state.notes} placeholder='Notes' onChange={this.updateNotes}></textarea>
 						</div>
 						<input id='newSubmit' type='submit'/>
 					</div>
