@@ -54,17 +54,17 @@ class CreateHomeworkModal extends Component {
 					<div id='newHead'> NEW ASSIGNMENT </div>
 					
 					<div id='newText'>	
-						<div class='newItem'>	
+						<div className='newItem'>	
 							<label htmlFor="name">Name: </label>
-							<input class='newInput' type='text' value={this.state.name} placeholder='Assignment Name' onChange={this.updateName}/>
+							<input className='newInput' type='text' value={this.state.name} placeholder='Assignment Name' onChange={this.updateName}/>
 						</div>
 						<div class='newItem'>
 							<label htmlFor='link'>Link: </label>				
-							<input class='newInput'type='text' value={this.state.link} placeholder='Github Link' onChange={this.updateLink}/>
+							<input className='newInput'type='text' value={this.state.link} placeholder='Github Link' onChange={this.updateLink}/>
 						</div>
-						<div class='newItem'>
+						<div className='newItem'>
 							<label htmlFor='notes'>Notes: </label>	
-							<textArea class='newInput' type='text' value={this.state.notes} placeholder='Notes' onChange={this.updateNotes}></textArea>
+							<textArea className='newInput' type='text' value={this.state.notes} placeholder='Notes' onChange={this.updateNotes}></textArea>
 						</div>
 						<input id='newSubmit' type='submit'/>
 					</div>
