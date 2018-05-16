@@ -212,7 +212,7 @@ class HomeworkContainer extends Component {
 
 
 	render () {
-		console.log(this.state);
+		
 		return (
 			<div className="LogRegField">
 
