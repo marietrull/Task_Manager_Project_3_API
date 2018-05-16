@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import HomeworkContainer from './HomeworkContainer';
 import LoginRegister from './LoginRegister';
@@ -17,6 +16,17 @@ class App extends Component {
 
 			message:""
 		}
+	}
+
+	hitEnter = (e) => {
+
+		if (e.charCode === 13){
+			console.log('Enter Hit')
+			this.loginAndRegister(e);
+		} else {
+			console.log('Other Key Hit')
+		}
+		
 	}
 
 	loginAndRegister= async(e)=>{
@@ -87,7 +97,7 @@ class App extends Component {
 
     	    {this.state.message !== "" ? <p>{this.state.message}</p> : null }
 
-    	  	{this.state.logged ? <HomeworkContainer /> : <LoginRegister loginAndRegister={this.loginAndRegister} registering={this.state.registering} changeRegistering={this.changeRegistering}/>}  
+    	  	{this.state.logged ? <HomeworkContainer /> : <LoginRegister loginAndRegister={this.loginAndRegister} registering={this.state.registering} changeRegistering={this.changeRegistering} hitEnter={this.hitEnter}/>}  
 
      	   
      	 </div>
