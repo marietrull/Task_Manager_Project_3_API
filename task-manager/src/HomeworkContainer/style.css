@@ -7,12 +7,13 @@
 	margin-left: auto;
 	margin-right: auto;
 	padding: 40px;
+
 }
 
 #addButton{
     border: 1.5px solid #333;
     height: 30px;
-    margin-top: 10px;
+    margin-top: 5px;
     font-size: 15px;
     float: right;
     border-radius: 10px;
@@ -24,4 +25,7 @@
 	margin-right: auto;
 }
 
+.bodyContainer {
+	height: 70%;
+}
 

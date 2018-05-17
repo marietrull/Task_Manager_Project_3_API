@@ -31,7 +31,7 @@ class HomeworkContainer extends Component {
 	      this.setState({assignments: response.user_assignments})
 	    })
 	    .catch ((err) => {
-	      console.log(err)
+	     
 	    })
 
 	}
@@ -182,7 +182,6 @@ class HomeworkContainer extends Component {
 
 	changeTab = (e) =>{
 
-		console.log('Tab Clicked')
 
 		const tabText = e.target.innerText;
 
@@ -190,6 +189,7 @@ class HomeworkContainer extends Component {
 	}
 
 	check = async (e) =>{
+
 
 		const checkJSON = await fetch(`http://localhost:9292/assignment/${this.state.hwShowing.id}/check`, {
 			method: 'PUT',
@@ -205,13 +205,15 @@ class HomeworkContainer extends Component {
 		else
 		{
 			this.setState({hwShowing:{...this.state.hwShowing, complete: true }});
-		}	
+		}
+
+
+
 
 	}
 
 
 	render () {
-		console.log(this.state.hwShowing);
 		return (
 			<div className="LogRegField">
 
@@ -224,21 +226,23 @@ class HomeworkContainer extends Component {
 
 
 				{this.state.outcomes == false ? 
+					<div className="bodyContainer">
+						<div id='homeworkContainer'>
+							<Homework assignments={this.state.assignments} openEdit={this.openEdit}showHWModal={this.showHWModal}/>
+							<button id='addButton'  onClick={this.openAdd}> New Assignment </button>
+							<CreateHomeworkModal addAssignment={this.addAssignment} openEdit={this.openEdit} showAdd={this.state.showAdd} closeAddModal={this.closeAddModal}/>
 
-					<div id='homeworkContainer'>
-						<Homework assignments={this.state.assignments} openEdit={this.openEdit}showHWModal={this.showHWModal}/>
-						<button id='addButton'  onClick={this.openAdd}> New Assignment </button>
-						<CreateHomeworkModal addAssignment={this.addAssignment} openEdit={this.openEdit} showAdd={this.state.showAdd} closeAddModal={this.closeAddModal}/>
+							<ShowHWModal hwShowing={this.state.hwShowing} hwModalOpen={this.state.hwModalOpen} closeHWModal={this.closeHWModal} check={this.check} />
 
-						<ShowHWModal hwShowing={this.state.hwShowing} hwModalOpen={this.state.hwModalOpen} closeHWModal={this.closeHWModal} check={this.check} />
+							<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment} removeAssignment={this.removeAssignment} editedAssignment={this.state.editedAssignment} closeEditModal={this.closeEditModal}/>
 
-						<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment} removeAssignment={this.removeAssignment} editedAssignment={this.state.editedAssignment} closeEditModal={this.closeEditModal}/>
-
-					</div>
+						</div>
+					</div>	
 
 				:
-
-					<OutcomesContainer/>
+					<div className="bodyContainer">
+						<OutcomesContainer/>
+					</div>	
 				}
 
 				

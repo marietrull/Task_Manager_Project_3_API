@@ -22,19 +22,13 @@ class App extends Component {
 
 	hitEnter = (e) => {
 		if (e.charCode === 13){
-			console.log('Enter Hit')
 			this.loginAndRegister(e);
-		} else {
-			console.log('Other Key Hit')
-		}
+		} 
 		
 	}
 
 	loginAndRegister= async(e)=>{
 
-		console.log(e.target.parentNode.parentNode.childNodes[1].childNodes[0].value)
-		console.log(e.target.parentNode.parentNode.childNodes[0].childNodes[0].value)
-		console.log(e.target.innerText);
 
 		const buttonText = e.target.innerText;
 
@@ -70,7 +64,6 @@ class App extends Component {
 
 			loginResponse.success ? this.setState({logged:true, username:loginResponse.username}) : this.setState({message: loginResponse.message})
 
-			console.log(this.state)
 		}
 
 
@@ -104,7 +97,11 @@ class App extends Component {
 				</div>	
     	  	</div>
 
+
     	  	<button id='logoutButton'> Logout </button>
+
+    	  	{(this.state.message !== "" && !this.state.logged) ? <p> {this.state.message}</p> : null}
+
 
     	     
 

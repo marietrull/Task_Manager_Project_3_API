@@ -15,24 +15,32 @@ class UserController < ApplicationController
 
 		user.password = @payload[:password]
 
-		user.save
+		if ! User.exists?(username: user.username)
+			user.save
 
-		session[:logged_in] = true
+			session[:logged_in] = true
 
-		session[:username] = user.username
+			session[:username] = user.username
 
-		session[:user_id] = user.id
+			session[:user_id] = user.id
 
+			{
+				success: true,
 
-		{
-			success: true,
+				username:session[:username],
 
-			username:session[:username],
+				message: "Logged in as #{session[:username]}."
 
-			message: "Logged in as #{session[:username]}."
+			}.to_json
 
-		}.to_json
-		
+		else
+			{
+				success: false,
+
+				message: "Username already taken."
+			}.to_json
+		end	
+
 	end
 
 
