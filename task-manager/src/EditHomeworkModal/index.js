@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import './style.css'
 
-// Changed to a class --> because we can't actually type in our input
-// This is because props are immutable
 class EditHomeworkModal extends Component {
-	// can pass props into your constructor
+
 	constructor (){
 		super();
 
@@ -18,7 +16,7 @@ class EditHomeworkModal extends Component {
 	componentWillReceiveProps(nextProps){
 
 		if (nextProps.editedAssignment === ''){
-			console.log(nextProps.editedAssignment, typeof nextProps.editedAssignment)
+			
 		} else {
 			this.setState({
 				name: nextProps.editedAssignment.name,

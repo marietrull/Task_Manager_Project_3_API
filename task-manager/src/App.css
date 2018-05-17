@@ -52,3 +52,24 @@ body {
   color: #fff;
   font-size: 35px;
 }
+
+#logoutNone {
+  visibility: hidden;
+  border:3px solid #333;
+  font-size: 15px;
+  padding-left: 10px;
+  height: 15%;
+  width: 10%;
+  float: right;
+}
+
+
+
+#logoutButton {
+  border:3px solid #333;
+  font-size: 15px;
+  padding-left: 10px;
+  height: 15%;
+  width: 10%;
+  float: right;
+}
