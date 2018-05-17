@@ -6,6 +6,7 @@ const Outcome = ({outcomes, openEdit}) => {
 
 		return <li className='assignmentList' id={outcome.id} key={i}>
 					{outcome.name}
+					
 					<button className='editButton' onClick={openEdit}>EDIT</button>
 
 				</li>	
