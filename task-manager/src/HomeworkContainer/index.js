@@ -19,9 +19,6 @@ class HomeworkContainer extends Component {
 			hwModalOpen: false,
 			hwShowing:{},
 			outcomes: false
-
-			
-
 		}
 	}
 
@@ -173,6 +170,7 @@ class HomeworkContainer extends Component {
 	}
 
 
+
 	closeHWModal = () => {
 		this.setState({
 			hwModalOpen: false
@@ -206,8 +204,6 @@ class HomeworkContainer extends Component {
 		{
 			this.setState({hwShowing:{...this.state.hwShowing, complete: true }});
 		}
-
-
 
 
 	}
