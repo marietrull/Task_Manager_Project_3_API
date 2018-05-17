@@ -38,8 +38,6 @@ class CreateOutcomeModal extends Component {
 	
 		})
 
-		console.log(this.state, 'state after handleSubmit')
-
 	}
 
 	render (){

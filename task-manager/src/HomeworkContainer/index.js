@@ -81,7 +81,7 @@ class HomeworkContainer extends Component {
 	}
 
 	removeAssignment = async () => {
-		//Capture the id of the assignment for deletion
+		
 		const id = this.state.editedAssignment.id
 
 		const removeItem = await fetch('http://localhost:9292/assignment/' + id, {

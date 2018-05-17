@@ -47,8 +47,6 @@ class OutcomesContainer extends Component {
 
   	addAssignment = async (name, link, notes) => {
 
-  		console.log('AddAssignment hit')
-
 		const outcomes = await fetch('http://localhost:9292/outcome', {
 			method: 'POST',
 			body: JSON.stringify({
@@ -76,10 +74,37 @@ class OutcomesContainer extends Component {
 		});
 	}
 
+	removeAssignment = async () => {
+
+		const id = this.state.editedAssignment.id
+
+		const removeItem = await fetch('http://localhost:9292/outcome/' + id, {
+			method: 'DELETE',
+			credentials: 'include'
+		});
+
+		const response = await removeItem.json();
+		if (response.success){
+			this.setState({outcomes: this.state.outcomes.filter((removeItem) => removeItem.id != id)});
+		} 
+
+		this.setState({
+			showEdit: false
+		})
+		
+	}
+
 	openEdit = (e) => {
+
+		const id = parseInt(e.currentTarget.parentNode.id);
+
+	    const editedAssignment = this.state.outcomes.find((outcome) => {
+	      return outcome.id === id 
+	    })
 
 	    this.setState({
 	      showEdit: true,
+	      editedAssignment: editedAssignment
 	    })
 		
 	}
@@ -99,7 +124,7 @@ class OutcomesContainer extends Component {
 					 <Outcome outcomes={this.state.outcomes} openEdit={this.openEdit}/>
 					 <button id='addButton'  onClick={this.openAdd}> New Assignment </button>
 					 <CreateOutcomeModal addAssignment={this.addAssignment} showAdd={this.state.showAdd} closeAddModal={this.closeAddModal}/>
-					 <EditOutcomeModal showEdit={this.state.showEdit} closeEditModal={this.closeEditModal}/>
+					 <EditOutcomeModal showEdit={this.state.showEdit} closeEditModal={this.closeEditModal} removeAssignment={this.removeAssignment}/>
 				</div>
 			)
 

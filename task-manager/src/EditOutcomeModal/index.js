@@ -37,7 +37,7 @@ class EditOutcomeModal extends Component {
 							<textarea className='notesInput' id="notes" type='text' value={this.state.notes} placeholder='Notes'> </textarea><br/>
 						</div>
 					</div>
-					<button className='editButtons'> DELETE </button>
+					<button className='editButtons' onClick={this.props.removeAssignment}> DELETE </button>
 					<input className='editButtons' type='submit'/>
 				</div>
 			</div>
