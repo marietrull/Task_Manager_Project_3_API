@@ -13,7 +13,7 @@ class EditOutcomeModal extends Component {
 
 	componentWillReceiveProps(nextProps){
 
-		if (nextProps.editedAssignment === ''){
+		if (nextProps.editedAssignment === ''){ 
 			console.log(nextProps.editedAssignment, typeof nextProps.editedAssignment)
 		} else {
 			this.setState({

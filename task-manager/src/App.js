@@ -104,6 +104,8 @@ class App extends Component {
 				</div>	
     	  	</div>
 
+    	  	<button id='logoutButton'> Logout </button>
+
     	     
 
     	  	{this.state.logged ? <HomeworkContainer /> : <LoginRegister loginAndRegister={this.loginAndRegister} registering={this.state.registering} changeRegistering={this.changeRegistering} hitEnter={this.hitEnter}/>}  
