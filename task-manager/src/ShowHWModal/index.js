@@ -7,9 +7,6 @@ const ShowHWModal = ({hwShowing, hwModalOpen, closeHWModal, check, checked})=>{
 	if (hwShowing.complete == undefined){
 		hwShowing.complete = false;
 	}
-
-	
-
 	
 	return(
 
@@ -18,18 +15,15 @@ const ShowHWModal = ({hwShowing, hwModalOpen, closeHWModal, check, checked})=>{
 
   		
   			<div className="modal-content">
+
    		 		<span onClick={closeHWModal} className="close">&times;</span>
 
    		 		<div className='showHWText'>
     			
 					<p id='nameText'>{hwShowing.name}</p>
-
 					<a id='linkText' target="_blank" href={hwShowing.link}> GitHub Link </a>
-
 					<p id='notesHeader'> Notes </p>
-
 					<p id='notesText'>{hwShowing.notes}</p>
-
 					<p>{hwShowing.assignment_complete}</p>
 
 					<div id='checkComplete'>
@@ -38,9 +32,7 @@ const ShowHWModal = ({hwShowing, hwModalOpen, closeHWModal, check, checked})=>{
 							<input  checked={hwShowing.complete} type="checkbox" id="Complete" name="Complete" value="Complete"/>
 							<label onClick={check} htmlFor="Complete"></label>
 						</form>	
-
 					</div>
-		
 
 				</div>
 
