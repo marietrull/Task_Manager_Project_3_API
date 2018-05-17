@@ -8,7 +8,9 @@ import './style.css'
 
 
 class HomeworkContainer extends Component {
+
 	constructor (){
+
 		super();
 
 		this.state = {
@@ -22,22 +24,28 @@ class HomeworkContainer extends Component {
 		}
 	}
 
-	componentDidMount(){
-	    this.getItems()
-	    .then((response) => {
-	      this.setState({assignments: response.user_assignments})
-	    })
-	    .catch ((err) => {
-	     
-	    })
+	componentDidMount () {
+
+		this.getItems()
+		.then((response) => {
+			this.setState({
+				assignments: response.user_assignments
+			})
+		})
+		.catch ((err) => {
+		 
+		})
 
 	}
 
 	getItems = async () => {
+
 	    const assignmentsJson = await fetch('http://localhost:9292/assignment', {
 	      credentials: 'include'
 	    })
+
 	    const assignments = await assignmentsJson.json();
+
 	    return assignments;
   	}
 
@@ -63,7 +71,9 @@ class HomeworkContainer extends Component {
 
 		const assignmentsParsed = await assignments.json();
 
-		this.setState({assignments: [...this.state.assignments, assignmentsParsed.added_assignment]})
+		this.setState({
+			assignments: [...this.state.assignments, assignmentsParsed.added_assignment]
+		})
 
 		this.setState({
 			showAdd: false
@@ -88,7 +98,9 @@ class HomeworkContainer extends Component {
 
 		const response = await removeItem.json();
 		if (response.success){
-			this.setState({assignments: this.state.assignments.filter((removeItem) => removeItem.id != id)});
+			this.setState({
+				assignments: this.state.assignments.filter((removeItem) => removeItem.id != id)
+			});
 		} 
 
 		this.setState({
@@ -106,20 +118,17 @@ class HomeworkContainer extends Component {
 	    })
 
 	    this.setState({
-	      showEdit: true,
-	      editedAssignment: editedAssignment
+			showEdit: true,
+			editedAssignment: editedAssignment
 	    })
 		
 	}
 
 	editAssignment = async (name, link, notes) => {
+
 		const editId = this.state.editedAssignment.id
 
-														// Added syntactic sugar
 		const assignment = await fetch(`http://localhost:9292/assignment/${editId}`, {
-
-
-
 			method: 'PUT',
 			body: JSON.stringify({
 				name: name,
@@ -178,16 +187,14 @@ class HomeworkContainer extends Component {
 	}
 
 
-	changeTab = (e) =>{
-
+	changeTab = (e) => {
 
 		const tabText = e.target.innerText;
 
 		tabText === "Outcomes" ? this.setState({outcomes: true}) : this.setState({outcomes: false});
 	}
 
-	check = async (e) =>{
-
+	check = async (e) => {
 
 		const checkJSON = await fetch(`http://localhost:9292/assignment/${this.state.hwShowing.id}/check`, {
 			method: 'PUT',
@@ -198,13 +205,18 @@ class HomeworkContainer extends Component {
 		
 
 		if(this.state.hwShowing.complete){
-			this.setState({hwShowing:{...this.state.hwShowing, complete: false }});
-		}
-		else
-		{
-			this.setState({hwShowing:{...this.state.hwShowing, complete: true }});
+			this.setState({
+				hwShowing:{...this.state.hwShowing, complete: false }
+			});
 		}
 
+		else
+
+		{
+			this.setState({
+				hwShowing:{...this.state.hwShowing, complete: true }
+			});
+		}
 
 	}
 
@@ -213,38 +225,39 @@ class HomeworkContainer extends Component {
 		return (
 			<div className="LogRegField">
 
-
 				<div className="MainTab">
-					<div className="LoginTab Tab" onClick={this.changeTab} >Outcomes</div> 
 
+					<div className="LoginTab Tab" onClick={this.changeTab} >Outcomes</div> 
 					<div className="RegisterTab Tab" onClick={this.changeTab}>Homework</div>
+
 				</div>	
 
-
 				{this.state.outcomes == false ? 
+					
 					<div className="bodyContainer">
+						
 						<div id='homeworkContainer'>
+							
 							<Homework assignments={this.state.assignments} openEdit={this.openEdit}showHWModal={this.showHWModal}/>
 							<button id='addButton'  onClick={this.openAdd}> New Assignment </button>
 							<CreateHomeworkModal addAssignment={this.addAssignment} openEdit={this.openEdit} showAdd={this.state.showAdd} closeAddModal={this.closeAddModal}/>
-
 							<ShowHWModal hwShowing={this.state.hwShowing} hwModalOpen={this.state.hwModalOpen} closeHWModal={this.closeHWModal} check={this.check} />
-
 							<EditHomeworkModal showEdit={this.state.showEdit} editAssignment={this.editAssignment} removeAssignment={this.removeAssignment} editedAssignment={this.state.editedAssignment} closeEditModal={this.closeEditModal}/>
 
 						</div>
+
 					</div>	
 
 				:
 					<div className="bodyContainer">
+
 						<OutcomesContainer/>
+
 					</div>	
 				}
-
 				
 			</div>
 		)
-
 	}
 }
 

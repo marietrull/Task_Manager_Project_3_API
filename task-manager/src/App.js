@@ -6,6 +6,7 @@ import LoginRegister from './LoginRegister';
 class App extends Component {
 
 	constructor(){
+
 		super();
 
 		this.state = {
@@ -22,23 +23,19 @@ class App extends Component {
 
 	hitEnter = (e) => {
 
-		console.log(e.charCode, 'key hit')
-
 		if (e.charCode === 13){
-			console.log ("ANNYTHINGGG")
 			this.loginAndRegister(e);
 		} 
 		
 	}
 
-	loginAndRegister= async(e)=>{
-
+	loginAndRegister = async (e) => {
 
 		const buttonText = e.target.innerText;
 
-		const pwInputVal = e.target.parentNode.parentNode.childNodes[1].childNodes[0].value
+		const pwInputVal = e.target.parentNode.parentNode.childNodes[1].childNodes[0].value;
 
-		const userInputVal = e.target.parentNode.parentNode.childNodes[0].childNodes[0].value
+		const userInputVal = e.target.parentNode.parentNode.childNodes[0].childNodes[0].value;
 
 		if(buttonText === "Register"){
 
@@ -90,7 +87,8 @@ class App extends Component {
 		})
 
 		this.setState({
-			logged: false
+			logged: false,
+			message: ''
 		});
 		
 	}
