@@ -29,3 +29,23 @@
 	height: 70%;
 }
 
+@media(max-width: 375px) {
+	#homeworkContainer {
+		background-color: pink;
+		width: 75%;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 40px;
+	}
+
+	.bodyContainer {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.MainTab {
+		width: 90%;
+	}
+
+}
+
