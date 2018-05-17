@@ -16,9 +16,7 @@ body {
 
 
 
-#logoutNone {
-  visibility: hidden;
-}
+
 .Header {
   display: flex;
   justify-content: space-around;
@@ -55,15 +53,28 @@ body {
 }
 
 #logoutButton {
-  border:3px solid #333;
+  border: 3px solid #333;
   font-size: 15px;
-  padding-left: 10px;
-  height: 15%;
-  width: 10%;
+  height: 30px;
+  width: 70px;
   float: right;
 }
 
 
+.assignmentField {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height:600px;
+}
+
+.logoutContainer {
+  height: 20%;
+  order:0;
+  flex-direction: column;
+  align-self: flex-end;
+
+}
 
 
 
@@ -94,7 +105,18 @@ body {
   .HeadingContain {
     margin-right: 0px;
   }
+  .logoutContainer {
+    margin-top: -15px;
+    width: 100%;
+  }
+
+  #logoutButton {
+    font-size: 10px;
+    height: 27px;
+  }
 }
+
+
 
 
 
