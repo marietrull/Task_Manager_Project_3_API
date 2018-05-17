@@ -21,7 +21,11 @@ class App extends Component {
 	}
 
 	hitEnter = (e) => {
+
+		console.log(e.charCode, 'key hit')
+
 		if (e.charCode === 13){
+			console.log ("ANNYTHINGGG")
 			this.loginAndRegister(e);
 		} 
 		
@@ -51,7 +55,7 @@ class App extends Component {
 		}
 
 
-		if(buttonText === "Login"){
+		else {
 
 			const loginJSON = await fetch("http://localhost:9292/user/login",
 			{
@@ -78,7 +82,8 @@ class App extends Component {
 
 	logout = async (e) => {
 
-		const logoutJson = await fetch("http://localhost:9292/user/logout",
+		const logout = await fetch("http://localhost:9292/user/logout",
+		
 		{
 			method: 'POST',
 			credentials: 'include',
@@ -87,8 +92,6 @@ class App extends Component {
 		this.setState({
 			logged: false
 		});
-
-		console.log(logoutJson , 'logout response')
 		
 	}
 
