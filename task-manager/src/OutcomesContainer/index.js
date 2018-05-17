@@ -9,7 +9,7 @@ class OutcomesContainer extends Component {
 		super();
 
 		this.state = {
-			outcomes: ['Outcomes 1', 'Outcomes 2', 'Outcomes 3'],
+			outcomes: [],
 			showAdd: false,
 			showEdit: false,
 			editedAssignment: '',
@@ -17,6 +17,26 @@ class OutcomesContainer extends Component {
 			hwShowing:[],
 		}
 	}
+
+	componentDidMount(){
+	    this.getItems()
+	    .then((response) => {
+	    	console.log(response.user_assignments, 'response in componentDid Mount')
+	    	this.setState({outcomes: response.user_assignments})
+	    })
+	    .catch ((err) => {
+	    	console.log(err)
+	    })
+
+	}
+
+	getItems = async () => {
+	    const outcomesJson = await fetch('http://localhost:9292/outcome', {
+	      credentials: 'include'
+	    })
+	    const outcomes = await outcomesJson.json();
+	    return outcomes;
+  	}
 
 	openAdd = async (e) => {
 
