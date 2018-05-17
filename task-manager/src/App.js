@@ -66,11 +66,9 @@ class App extends Component {
 
 		}
 
-
-
 	}
 
-	changeRegistering=(e)=>{
+	changeRegistering = (e) => {
 
 		const tabText = e.target.innerText;
 
@@ -78,11 +76,28 @@ class App extends Component {
 
 	}
 
+	logout = async (e) => {
 
+		const logoutJson = await fetch("http://localhost:9292/user/logout",
+		{
+			method: 'POST',
+			credentials: 'include',
+		})
+
+		this.setState({
+			logged: false
+		});
+
+		console.log(logoutJson , 'logout response')
+		
+	}
 
 
 
   	render() {
+
+  		const logoutClass = this.state.logged ? 'logoutButton' : 'logoutNone'
+
     	return (
     	  <div className="App">
 
@@ -98,7 +113,7 @@ class App extends Component {
     	  	</div>
 
 
-    	  	<button id='logoutButton'> Logout </button>
+    	  	<button id={logoutClass} onClick={this.logout}> Logout </button>
 
     	  	{(this.state.message !== "" && !this.state.logged) ? <p> {this.state.message}</p> : null}
 
