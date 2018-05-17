@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Outcome from '../Outcome';
 import CreateOutcomeModal from '../CreateOutcomeModal';
 import EditOutcomeModal from '../EditOutcomeModal';
+import ModalOutcomes from '../ModalOutcomes'
 
 
 class OutcomesContainer extends Component {
@@ -15,6 +16,8 @@ class OutcomesContainer extends Component {
 			editedAssignment: '',
 			hwModalOpen: false,
 			hwShowing:[],
+			outcomeModalOpen:false,
+			outcomeShowing:{},
 		}
 	}
 
@@ -145,15 +148,64 @@ class OutcomesContainer extends Component {
 	}
 
 
+	showOutcomesModal = async (e)=>{
+
+		const outcomeId = e.target.parentNode.id;
+
+		const outcomeJSON = await fetch(`http://localhost:9292/outcome/${outcomeId}`, {
+			credentials:'include'
+		});
+
+
+		const outcomeResponse = await outcomeJSON.json();
+
+
+		this.setState({
+			outcomeModalOpen: true,
+			outcomeShowing: outcomeResponse.assignment
+		});
+
+	}
+
+	closeOutcomeModal = ()=>{
+		this.setState({
+			outcomeModalOpen: false
+		});
+	}
+
+	check = async (e) =>{
+
+
+		const checkJSON = await fetch(`http://localhost:9292/outcome/${this.state.outcomeShowing.id}/check`, {
+			method: 'PUT',
+			credentials: 'include'
+		});
+
+		const checkResp = await checkJSON.json();
+		
+
+		if(this.state.outcomeShowing.complete){
+			this.setState({outcomeShowing:{...this.state.outcomeShowing, complete: false }});
+		}
+		else
+		{
+			this.setState({outcomeShowing:{...this.state.outcomeShowing, complete: true }});
+		}
+
+
+	}
+
+
 	render () {
 
 		return (
 
 				<div id='homeworkContainer'>
-					 <Outcome outcomes={this.state.outcomes} openEdit={this.openEdit}/>
-					 <button id='addButton'  onClick={this.openAdd}> New Assignment </button>
-					 <CreateOutcomeModal addAssignment={this.addAssignment} showAdd={this.state.showAdd} closeAddModal={this.closeAddModal}/>
-					 <EditOutcomeModal showEdit={this.state.showEdit} closeEditModal={this.closeEditModal} removeAssignment={this.removeAssignment} editAssignment={this.editAssignment} editedAssignment={this.state.editedAssignment}/>
+					<ModalOutcomes outcomeModalOpen={this.state.outcomeModalOpen} outcomeShowing={this.state.outcomeShowing} closeOutcomeModal={this.closeOutcomeModal} check={this.check} />
+					<Outcome outcomes={this.state.outcomes} openEdit={this.openEdit} showOutcomesModal={this.showOutcomesModal} />
+					<button id='addButton'  onClick={this.openAdd}> New Assignment </button>
+					<CreateOutcomeModal addAssignment={this.addAssignment} showAdd={this.state.showAdd} closeAddModal={this.closeAddModal}/>
+					<EditOutcomeModal showEdit={this.state.showEdit} closeEditModal={this.closeEditModal} removeAssignment={this.removeAssignment} editAssignment={this.editAssignment} editedAssignment={this.state.editedAssignment}/>
 				</div>
 			)
 

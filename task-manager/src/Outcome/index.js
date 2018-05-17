@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Outcome = ({outcomes, openEdit}) => {
+const Outcome = ({outcomes, openEdit,showOutcomesModal }) => {
 
 	const outcomesList = outcomes.map((outcome,i) => {
 
 		return <li className='assignmentList' id={outcome.id} key={i}>
-					{outcome.name}
+					<span onClick={showOutcomesModal}>{outcome.name}</span>
 					
 					<button className='editButton' onClick={openEdit}>EDIT</button>
 

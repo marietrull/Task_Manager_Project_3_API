@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 
 
-const ShowHWModal = ({hwShowing, hwModalOpen, closeHWModal, check, checked})=>{
+const ShowHWModal = ({hwShowing, hwModalOpen, closeHWModal, check})=>{
 
 	if (hwShowing.complete == undefined){
 		hwShowing.complete = false;
@@ -24,7 +24,6 @@ const ShowHWModal = ({hwShowing, hwModalOpen, closeHWModal, check, checked})=>{
 					<a id='linkText' target="_blank" href={hwShowing.link}> GitHub Link </a>
 					<p id='notesHeader'> Notes </p>
 					<p id='notesText'>{hwShowing.notes}</p>
-					<p>{hwShowing.assignment_complete}</p>
 
 					<div id='checkComplete'>
 						<p id='checkLabel'>Complete</p>
