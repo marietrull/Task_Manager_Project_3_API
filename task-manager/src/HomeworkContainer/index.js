@@ -220,10 +220,15 @@ class HomeworkContainer extends Component {
 
 	}
 
+	
 
 	render () {
 		return (
-			<div className="LogRegField">
+			<div className="assignmentField">
+
+				<div className="logoutContainer">
+					<button id="logoutButton" onClick={this.props.logout}> Logout </button>
+				</div>	
 
 				<div className="MainTab">
 

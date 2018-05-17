@@ -86,6 +86,7 @@ class App extends Component {
 			credentials: 'include',
 		})
 
+
 		this.setState({
 			logged: false,
 			message: ''
@@ -93,11 +94,13 @@ class App extends Component {
 		
 	}
 
+	
+
 
 
   	render() {
 
-  		const logoutClass = this.state.logged ? 'logoutButton' : 'logoutNone'
+  		// const logoutClass = this.state.logged ? 'logoutButton' : 'logoutNone'
 
     	return (
     	  <div className="App">
@@ -114,19 +117,20 @@ class App extends Component {
     	  	</div>
 
 
-    	  	<button id={logoutClass} onClick={this.logout}> Logout </button>
+    	  	
 
     	  	{(this.state.message !== "" && !this.state.logged) ? <p> {this.state.message}</p> : null}
 
 
     	     
 
-    	  	{this.state.logged ? <HomeworkContainer /> : <LoginRegister loginAndRegister={this.loginAndRegister} registering={this.state.registering} changeRegistering={this.changeRegistering} hitEnter={this.hitEnter}/>}  
+    	  	{this.state.logged ? <HomeworkContainer logout={this.logout}/> : <LoginRegister loginAndRegister={this.loginAndRegister} registering={this.state.registering} changeRegistering={this.changeRegistering} hitEnter={this.hitEnter}/>}  
 
      	   
      	 </div>
     	);
   	}
 }
+// <button id={logoutClass} onClick={this.logout}> Logout </button>
 
 export default App;

@@ -4,7 +4,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	border: 3px dotted #F2F3F4;
+	/*border: 3px dotted #F2F3F4;*/
 	height:600px;
 	margin-top:15px;
 }
@@ -52,7 +52,6 @@
 	flex-direction: column;
 	justify-content: space-around;
 	border:3px solid #333;
-
 	height: 300px;
 	width: 55%;
 	margin-left: auto;
@@ -89,14 +88,35 @@
 
 
 @media (max-width:415px){
-
-	.logRegField {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		border: 3px dotted #333;
-		height:100px;
-		margin-top:15px;
+	.LogRegContain {
+		height: 300px;
+		width:75%;
+	}
+	.InpPass {
+		width: 70%;
+		font-size: 20px;
+	}
+	.InpUser {
+		width: 70%;
+		font-size: 20px;
+	}
+	.TabContain {
+		width:calc(75% + 6px);
+	}
+	
+	.LoginTab {
+		width: 25%;
+		font-size: 15px;
+	}
+	.RegisterTab {
+		width:25%;
+		font-size:15px; 
+	}
+	.LogBtn {
+		font-size: 25px;
+	}
+	.LogRegField {
+		margin-top:-80px;
 	}
 }
 
