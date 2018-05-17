@@ -1,3 +1,5 @@
+
+
 .LogRegField {
 	display: flex;
 	flex-direction: column;
@@ -5,7 +7,6 @@
 	border: 3px dotted #F2F3F4;
 	height:600px;
 	margin-top:15px;
-
 }
 
 .Tab {
@@ -87,4 +88,16 @@
 
 
 
+@media (max-width:415px){
 
+	.logRegField {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		border: 3px dotted #333;
+		height:100px;
+		margin-top:15px;
+	}
+
+
+}

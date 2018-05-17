@@ -1,102 +1,7 @@
-/*@-ms-viewport{
+@-ms-viewport{
   width: device-width;
-}*/
-
-@media (min-width: 375px) {
-
-  .Header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100px;
-    background-color:#7B7D7D;
-    box-shadow: -5px 5px 10px #333;
-  }
-  .Logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 65px;
-    width:65px;
-    border-radius: 50%;
-    background-color: #fa4542;
-    font-size:25px;
-    color: rgb(255,255,255);
-    border: 3px solid #333;
-  }
-  .HeadingContain {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .Heading {
-    font-size: 100%;
-    color: #fff;
-  }
-  .Welcome {
-    color: #fff;
-    font-size: 15px;
-    margin-top: 10px;
-  }
-  #logoutButton {
-    border:3px solid #333;
-    font-size: 12px;
-    padding-left: 6px;
-    height: 15%;
-    width: 15%;
-    float: right;
-  }
 }
 
-
-
-@media (min-width:925px){
-  .Header {
-
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 230px;
-    background-color:#7B7D7D;
-    box-shadow: -5px 5px 10px #333;
-  }
-  .Logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 175px;
-    width:175px;
-    border-radius: 50%;
-    background-color: #fa4542;
-    font-size:90px;
-    color: rgb(255,255,255);
-    border: 3px solid #333;
-  }
-  .HeadingContain {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 100px;
-  }
-  .Heading {
-    font-size: 400%;
-    color: #fff;
-  }
-  .Welcome {
-    color: #fff;
-    font-size: 35px;
-  }
-  
-  #logoutButton {
-    border:3px solid #333;
-    font-size: 15px;
-    padding-left: 10px;
-    height: 15%;
-    width: 10%;
-    float: right;
-  }
-
-}
 
 
 body {
@@ -112,8 +17,88 @@ body {
 
 
 #logoutNone {
-    visibility: hidden;
+  visibility: hidden;
 }
+.Header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 230px;
+  background-color:#7B7D7D;
+  box-shadow: -5px 5px 10px #333;
+}
+.Logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 175px;
+  width:175px;
+  border-radius: 50%;
+  background-color: #fa4542;
+  font-size:90px;
+  color: rgb(255,255,255);
+  border: 3px solid #333;
+}
+.HeadingContain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 100px;
+}
+.Heading {
+  font-size: 400%;
+  color: #fff;
+}
+.Welcome {
+  color: #fff;
+  font-size: 35px;
+}
+
+#logoutButton {
+  border:3px solid #333;
+  font-size: 15px;
+  padding-left: 10px;
+  height: 15%;
+  width: 10%;
+  float: right;
+}
+
+
+
+
+
+@media (max-width: 415px) {
+
+  .Header {
+    height: 100px;
+  }
+  .Logo {
+    height: 65px;
+    width:65px;
+    font-size:25px;
+  }
+  .Heading {
+    font-size: 100%;
+  }
+  .Welcome {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+  #logoutButton {
+    border:3px solid #333;
+    font-size: 12px;
+    padding-left: 6px;
+    height: 15%;
+    width: 15%;
+  }
+  .HeadingContain {
+    margin-right: 0px;
+  }
+}
+
+
+
+
 
 
  
