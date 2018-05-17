@@ -8,7 +8,9 @@ const ShowHWModal = ({hwShowing, hwModalOpen, closeHWModal, check, checked})=>{
 		hwShowing.complete = false;
 	}
 
-	console.log(hwShowing.complete, "Show Hw ");
+	
+
+	
 	return(
 
 
@@ -32,9 +34,9 @@ const ShowHWModal = ({hwShowing, hwModalOpen, closeHWModal, check, checked})=>{
 
 					<div id='checkComplete'>
 						<p id='checkLabel'>Complete</p>
-						<form>
-							<input onClick={check} checked={hwShowing.complete} type="checkbox" id="Complete" name="Complete" value="Complete"/>
-							<label htmlFor="Complete"></label>
+						<form >
+							<input  checked={hwShowing.complete} type="checkbox" id="Complete" name="Complete" value="Complete"/>
+							<label onClick={check} htmlFor="Complete"></label>
 						</form>	
 
 					</div>

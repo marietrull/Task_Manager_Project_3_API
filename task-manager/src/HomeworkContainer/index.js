@@ -31,7 +31,7 @@ class HomeworkContainer extends Component {
 	      this.setState({assignments: response.user_assignments})
 	    })
 	    .catch ((err) => {
-	      console.log(err)
+	     
 	    })
 
 	}
@@ -182,7 +182,6 @@ class HomeworkContainer extends Component {
 
 	changeTab = (e) =>{
 
-		console.log('Tab Clicked')
 
 		const tabText = e.target.innerText;
 
@@ -190,6 +189,7 @@ class HomeworkContainer extends Component {
 	}
 
 	check = async (e) =>{
+
 
 		const checkJSON = await fetch(`http://localhost:9292/assignment/${this.state.hwShowing.id}/check`, {
 			method: 'PUT',
@@ -205,13 +205,15 @@ class HomeworkContainer extends Component {
 		else
 		{
 			this.setState({hwShowing:{...this.state.hwShowing, complete: true }});
-		}	
+		}
+
+
+
 
 	}
 
 
 	render () {
-		console.log(this.state.hwShowing);
 		return (
 			<div className="LogRegField">
 
