@@ -21,7 +21,6 @@ class OutcomesContainer extends Component {
 	componentDidMount(){
 	    this.getItems()
 	    .then((response) => {
-	    	console.log(response.user_assignments, 'response in componentDid Mount')
 	    	this.setState({outcomes: response.user_assignments})
 	    })
 	    .catch ((err) => {
@@ -45,6 +44,30 @@ class OutcomesContainer extends Component {
 		})
   		
   	}
+
+  	addAssignment = async (name, link, notes) => {
+
+  		console.log('AddAssignment hit')
+
+		const outcomes = await fetch('http://localhost:9292/outcome', {
+			method: 'POST',
+			body: JSON.stringify({
+				name: name,
+				link: link,
+				notes: notes
+			}),
+			credentials: 'include'
+		})
+
+		const outcomesParsed = await outcomes.json();
+
+		this.setState({outcomes: [...this.state.outcomes, outcomesParsed.added_assignment]})
+
+		this.setState({
+			showAdd: false
+		})
+
+	}
 
   	closeAddModal = () => {
   		
@@ -75,7 +98,7 @@ class OutcomesContainer extends Component {
 				<div id='homeworkContainer'>
 					 <Outcome outcomes={this.state.outcomes} openEdit={this.openEdit}/>
 					 <button id='addButton'  onClick={this.openAdd}> New Assignment </button>
-					 <CreateOutcomeModal showAdd={this.state.showAdd} closeAddModal={this.closeAddModal}/>
+					 <CreateOutcomeModal addAssignment={this.addAssignment} showAdd={this.state.showAdd} closeAddModal={this.closeAddModal}/>
 					 <EditOutcomeModal showEdit={this.state.showEdit} closeEditModal={this.closeEditModal}/>
 				</div>
 			)
