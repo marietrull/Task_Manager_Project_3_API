@@ -97,6 +97,8 @@ class App extends Component {
 				</div>	
     	  	</div>
 
+    	  	{(this.state.message !== "" && !this.state.logged) ? <p> {this.state.message}</p> : null}
+
     	     
 
     	  	{this.state.logged ? <HomeworkContainer /> : <LoginRegister loginAndRegister={this.loginAndRegister} registering={this.state.registering} changeRegistering={this.changeRegistering} hitEnter={this.hitEnter}/>}  
