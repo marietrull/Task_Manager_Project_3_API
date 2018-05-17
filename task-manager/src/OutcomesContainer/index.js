@@ -109,6 +109,35 @@ class OutcomesContainer extends Component {
 		
 	}
 
+	editAssignment = async (name, link, notes) => {
+		const editId = this.state.editedAssignment.id
+
+														// Added syntactic sugar
+		const outcome = await fetch(`http://localhost:9292/outcome/${editId}`, {
+			method: 'PUT',
+			body: JSON.stringify({
+				name: name,
+				link: link,
+				notes: notes
+			}),
+			credentials: 'include'
+		})
+
+		const response = await outcome.json();
+
+		const editedOutcomeIndex = this.state.outcomes.findIndex((outcome) => {
+
+			return outcome.id === response.updated_assignment.id
+			
+		})		
+
+		const state = this.state;
+		state.outcomes[editedOutcomeIndex] = response.updated_assignment;
+		state.showEdit = false;
+		this.setState(state)
+
+	}
+
 	closeEditModal = () => {
 		this.setState({
 			showEdit: false
@@ -124,7 +153,7 @@ class OutcomesContainer extends Component {
 					 <Outcome outcomes={this.state.outcomes} openEdit={this.openEdit}/>
 					 <button id='addButton'  onClick={this.openAdd}> New Assignment </button>
 					 <CreateOutcomeModal addAssignment={this.addAssignment} showAdd={this.state.showAdd} closeAddModal={this.closeAddModal}/>
-					 <EditOutcomeModal showEdit={this.state.showEdit} closeEditModal={this.closeEditModal} removeAssignment={this.removeAssignment}/>
+					 <EditOutcomeModal showEdit={this.state.showEdit} closeEditModal={this.closeEditModal} removeAssignment={this.removeAssignment} editAssignment={this.editAssignment} editedAssignment={this.state.editedAssignment}/>
 				</div>
 			)
 
